@@ -1,0 +1,8 @@
+noaa fetches weather data from NOAA
+
+usage: noaa command args
+      
+noaa --datasets  [ --count [ count | 10 ] ]
+noaa --locations [ --count [ count | 10 ] | --search city ]
+noaa --data      --dataset dataset --location location --from YYYY-MM-DD                  --to YYYY-MM-DD
+

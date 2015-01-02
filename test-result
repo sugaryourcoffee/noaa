@@ -1,0 +1,17 @@
+.
+
+  1) test :help returned by option parsing with -h and --help options (CliTest)
+     test/cli_test.exs:6
+     Assertion with == failed
+     code: parse_args(["--help", "anything"]) == :help
+     lhs:  {[help: true], ["anything"], []}
+     rhs:  :help
+     stacktrace:
+       test/cli_test.exs:7
+
+.........
+
+Finished in 0.1 seconds (0.1s on load, 0.00s on tests)
+11 tests, 1 failures
+
+Randomized with seed 824615

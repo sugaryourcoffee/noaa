@@ -1,0 +1,23 @@
+Running dependency resolution
+Unlocked:   httpoison, jsx
+Dependency resolution completed successfully
+  httpoison: v0.5.0
+  idna: v1.0.1
+  jsx: v2.4.0
+  hackney: v0.14.3
+* Getting httpoison (Hex package)
+Checking package (https://s3.amazonaws.com/s3.hex.pm/tarballs/httpoison-0.5.0.tar)
+Using locally cached package
+Unpacked package tarball (/home/pierre/.hex/packages/httpoison-0.5.0.tar)
+* Getting jsx (Hex package)
+Checking package (https://s3.amazonaws.com/s3.hex.pm/tarballs/jsx-2.4.0.tar)
+Using locally cached package
+Unpacked package tarball (/home/pierre/.hex/packages/jsx-2.4.0.tar)
+* Getting hackney (Hex package)
+Checking package (https://s3.amazonaws.com/s3.hex.pm/tarballs/hackney-0.14.3.tar)
+Using locally cached package
+Unpacked package tarball (/home/pierre/.hex/packages/hackney-0.14.3.tar)
+* Getting idna (Hex package)
+Checking package (https://s3.amazonaws.com/s3.hex.pm/tarballs/idna-1.0.1.tar)
+Using locally cached package
+Unpacked package tarball (/home/pierre/.hex/packages/idna-1.0.1.tar)

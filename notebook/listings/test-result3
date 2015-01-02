@@ -1,0 +1,60 @@
+.
+
+  1) test :datasets returned with default count when only dataset is given (CliTest)
+     test/cli_test.exs:11
+     ** (CaseClauseError) no case clause matching: {[datasets: true], [], []}
+     stacktrace:
+       (noaa) lib/noaa/cli.ex:45: Noaa.CLI.parse_args/1
+       test/cli_test.exs:12
+
+.
+
+  2) test :data returned with -s, -d, -b and -e if all required data is given (CliTest)
+     test/cli_test.exs:35
+     ** (CaseClauseError) no case clause matching: {[data: true, dataset: "ABCD", location: "Munich", from: "2014-12-24", to: "2015-01-01"], [], []}
+     stacktrace:
+       (noaa) lib/noaa/cli.ex:45: Noaa.CLI.parse_args/1
+       test/cli_test.exs:36
+
+
+
+  3) test :datasets returned with count if dataset and count is given (CliTest)
+     test/cli_test.exs:15
+     ** (CaseClauseError) no case clause matching: {[datasets: true, count: 5], [], []}
+     stacktrace:
+       (noaa) lib/noaa/cli.ex:45: Noaa.CLI.parse_args/1
+       test/cli_test.exs:16
+
+
+
+  4) test :location returned with default count if only location is given (CliTest)
+     test/cli_test.exs:20
+     ** (CaseClauseError) no case clause matching: {[locations: true], [], []}
+     stacktrace:
+       (noaa) lib/noaa/cli.ex:45: Noaa.CLI.parse_args/1
+       test/cli_test.exs:21
+
+
+
+  5) test :location returned with city location and city is given (CliTest)
+     test/cli_test.exs:29
+     ** (CaseClauseError) no case clause matching: {[locations: true, location: "Munich"], [], []}
+     stacktrace:
+       (noaa) lib/noaa/cli.ex:45: Noaa.CLI.parse_args/1
+       test/cli_test.exs:30
+
+
+
+  6) test :location returned with count if location and count is given (CliTest)
+     test/cli_test.exs:24
+     ** (CaseClauseError) no case clause matching: {[locations: true, count: 8], [], []}
+     stacktrace:
+       (noaa) lib/noaa/cli.ex:45: Noaa.CLI.parse_args/1
+       test/cli_test.exs:25
+
+
+
+Finished in 0.3 seconds (0.3s on load, 0.05s on tests)
+8 tests, 6 failures
+
+Randomized with seed 569703

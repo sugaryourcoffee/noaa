@@ -1,0 +1,12 @@
+* idna (Hex package)
+  locked at 1.0.1 (idna)
+  the dependency build is outdated, please run `mix deps.compile`
+* jsx (Hex package)
+  locked at 2.4.0 (jsx)
+  the dependency build is outdated, please run `mix deps.compile`
+* hackney (Hex package)
+  locked at 0.14.3 (hackney)
+  the dependency build is outdated, please run `mix deps.compile`
+* httpoison (Hex package)
+  locked at 0.5.0 (httpoison)
+  the dependency build is outdated, please run `mix deps.compile`

@@ -1,0 +1,537 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{listings}
+
+\colorlet{shadecolor}{blue!20}
+
+\newcommand{\includecode}[3]{\lstinputlisting[caption=#1, label=#2]{#3}}
+
+\begin{document}
+\title{Command Line Application with Elixir}
+\author{Pierre Sugar\\
+\texttt{pierre@sugaryourcoffee.de}}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+The programming world gets parallel because of processors with multiple cores.
+Most of the programming languages aren't build for multiprocessing and hence
+cannot use the performance that comes with the multi core processors. Erlang is
+one of the most sophisticated language build especially for multiprocessing.
+But Erlang has some get to used rules and is not so much fun to program with.
+This is where Elixir comes into play. Elixir combines the advantages of Erlang
+with the elegance of Ruby.
+
+This tutorial is introducing into Elixir by developing a command line interface
+based on a suggestion from Dave Thomas' Elixir book. 
+\end{abstract}
+
+\section{Installation}
+\texttt{Elixir} is run on the \texttt{Erlang} virtual machine. That is we need
+\texttt{Elixir} and \texttt{Erlang} installed. The most up to date installation
+instructions for \texttt{Elixir} can be found at 
+\url{http://elixir-lang.org/install.html} and for \texttt{Erlang} at
+\url{https://www.erlang-solutions.com/downloads/download-erlang-otp}.
+
+To install \texttt{Erlang} we issue following commands from the command line
+
+\begin{verbatim}
+\$ wget http://package.erlang-solutions.com/erlang-solutions_1.0_all.deb
+\$ sudo dpkg -i erlang-solutions_1.0_all.deb
+\$ wget http://package.erlang-solutions.com/ubuntu/erlang_solutions.asc
+\$ sudo apt-key add erlang_solutions erlang_solutions.asc
+\$ sudo apt-get update
+\$ sudo apt-get install erlang
+\end{verbatim}
+
+Next we install \texttt{Elixir}
+
+\begin{verbatim}
+\$ wget http://packages.erlang-solutions._1.0_all.deb 
+\$ sudo dpkg -i erlang-solutions_1.0_all.deb
+\$ sudo apt-get update
+\$ sudo apt-get install elixir
+\end{verbatim}
+
+Now we are ready to go.
+
+\section{Define the Project}
+The \texttt{National Climatic Data Center} or short \texttt{NOAA} is providing
+web services to retrieve climatic data from cities of the American continent.
+We want to retrieve this data with our application and display it on the
+console.
+
+\subsection{Project outline}
+The program runs from the command line. We will provide a location and the
+program will print the wheather data.
+
+\begin{itemize}
+  \item Provide location \$ noaa <location>
+  \item Parse the input
+  \item Fetch the data from NOAA
+  \item Extract the wheather data
+  \item Print the results
+\end{itemize}
+
+But before we jump into the application development we need to understand the
+web service from \texttt{NOAA} to know what we actually have to provide as
+parameters.
+
+\subsection{Understanding the NOAA Web Service}
+To use the web service from \texttt{NOAA} we need to request a token. With each
+web service request we have to provide that token.
+
+To request a token go to \url{https://www.ncdc.noaa.gov/cdo-web/token} and 
+enter and submit your e-mail address. You will receive a token send to the 
+provided e-mail address. This token you allways have to provide when sending
+a web service request to \texttt{NOAA}.
+
+Let's check out the web service with \texttt{curl}. Information about how to use
+the web service can be found at 
+\url{https://www.ncdc.noaa.gov/cdo-web/webservices/v2}.
+
+To know wich locations are available to retrieve wheather data for we can
+retrieve the data with the \texttt{/locations} url.
+
+\begin{verbatim}
+\$ curl -H "token:pLCcTVobSdphuEvXyOyhkAbVlObmWQra" \
+        http://www.ncdc.noaa.gov/cdo-web/api/v2/locations
+{"results":[
+ {"id":"CITY:AE000002",
+  "name":"Ajman, AE",
+  "datacoverage":0.6855,
+  "mindate":"1944-03-01",
+  "maxdate":"2014-12-29"},
+ {"id":"CITY:AE000003",
+  "name":"Dubai, AE",
+  "datacoverage":0.6855,
+  "mindate":"1944-03-01",
+  "maxdate":"2014-12-29"},
+  ...
+ {"id":"CITY:AR000010",
+  "name":"Mendoza, AR",
+  "datacoverage":0.997,
+  "mindate":"1959-10-01",
+  "maxdate":"2014-12-29"},
+ {"id":"CITY:AR000011",
+  "name":"Neuquen, AR",
+  "datacoverage":0.9814,
+  "mindate":"1956-08-01",
+  "maxdate":"2014-12-29"}],
+ "metadata":{"resultset":{"limit":25,"count":38497,"offset":1}}}
+\end{verbatim}
+
+As we can see the data is provided in a JSON format with \texttt{"results"} and
+\texttt{"metadata"} fields. But it seems there are loads of locations. That is
+our application also has to provided a way to list all available location data.
+
+The data is provided in different datasets. Dependent the information we want
+to retrieve we have to know the datasets \texttt{datatypeid}. We can obtain the
+information with the \texttt{/datasets} url.
+
+\begin{verbatim}
+\$ curl -H "token:pLCcTVobSdphuEvXyOyhkAbVlObmWQra" \
+        http://www.ncdc.noaa.gov/cdo-web/api/v2/datasets
+{"results":[
+  {"uid":"gov.noaa.ncdc:C00040","id":"ANNUAL","name":"Annual Summaries",
+   "datacoverage":1,"mindate":"1831-02-01","maxdate":"2014-07-01"},
+  {"uid":"gov.noaa.ncdc:C00861","id":"GHCND","name":"Daily Summaries",
+   "datacoverage":1,"mindate":"1763-01-01","maxdate":"2014-12-31"},
+  {"uid":"gov.noaa.ncdc:C00841","id":"GHCNDMS","name":"Monthly Summaries",
+   "datacoverage":1,"mindate":"1763-01-01","maxdate":"2014-11-01"},
+  {"uid":"gov.noaa.ncdc:C00345","id":"NEXRAD2",
+   "name":"Weather Radar (Level II)",
+   "datacoverage":0.95,"mindate":"1991-06-05","maxdate":"2014-12-31"},
+  {"uid":"gov.noaa.ncdc:C00708","id":"NEXRAD3",
+   "name":"Weather Radar (Level III)",
+   "datacoverage":0.95,"mindate":"1994-05-20","maxdate":"2014-12-28"},
+  {"uid":"gov.noaa.ncdc:C00821","id":"NORMAL_ANN",
+   "name":"Normals Annual/Seasonal",
+   "datacoverage":1,"mindate":"2010-01-01","maxdate":"2010-01-01"},
+  {"uid":"gov.noaa.ncdc:C00823","id":"NORMAL_DLY","name":"Normals Daily",
+   "datacoverage":1,"mindate":"2010-01-01","maxdate":"2010-12-31"},
+  {"uid":"gov.noaa.ncdc:C00824","id":"NORMAL_HLY","name":"Normals Hourly",
+   "datacoverage":1,"mindate":"2010-01-01","maxdate":"2010-12-31"},
+  {"uid":"gov.noaa.ncdc:C00822","id":"NORMAL_MLY","name":"Normals Monthly",
+   "datacoverage":1,"mindate":"2010-01-01","maxdate":"2010-12-01"},
+  {"uid":"gov.noaa.ncdc:C00505","id":"PRECIP_15",
+   "name":"Precipitation 15 Minute",
+   "datacoverage":0.25,"mindate":"1970-05-12","maxdate":"2013-07-01"},
+  {"uid":"gov.noaa.ncdc:C00313","id":"PRECIP_HLY",
+   "name":"Precipitation Hourly",
+   "datacoverage":1,"mindate":"1900-01-01","maxdate":"2013-10-01"}],
+ "metadata":{"resultset":{"limit":25,"count":11,"offset":1}}}
+\end{verbatim}
+
+This information we have to additionally provide to the location information
+for that we want to retrieve data from. Hence we also have to provide a way to
+retrieve possible datasets with our application. 
+
+From the \texttt{location} information we can obtain the min and max date 
+weather data is available for each country. From the \texttt{dataset} 
+information we can obtain which datasets are available. Based on that 
+information we call the \texttt{data} url to retrieve the weather data.
+
+And finally to retrieve actual weather data we invoke the \texttt{/data} url
+with the \texttt{datasetid} GHCND and the \texttt{locationid} CITY:000019 for
+Munich.
+
+\begin{verbatim}
+\$ curl -H "token:pLCcTVobSdphuEvXyOyhkAbVlObmWQra" \
+        http://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&\
+        locationid=CITY:GM000019&startdate=2014-10-01&enddate=2014-10-31
+{"results":[
+  {"station":"GHCND:GM000004199","value":14,"attributes":",,E,",
+  "datatype":"PRCP","date":"2014-10-01T00:00:00"},
+  {"station":"GHCND:GM000004199","value":0,"attributes":",,E,",
+  "datatype":"SNWD","date":"2014-10-01T00:00:00"},
+  {"station":"GHCND:GM000004199","value":193,"attributes":",,E,",
+  "datatype":"TMAX","date":"2014-10-01T00:00:00"},
+  {"station":"GHCND:GM000004199","value":120,"attributes":",,E,",
+  "datatype":"TMIN","date":"2014-10-01T00:00:00"},
+  {"station":"GHCND:GME00111524","value":3,"attributes":",,E,",
+  "datatype":"PRCP","date":"2014-10-01T00:00:00"},
+  {"station":"GHCND:GME00111524","value":0,"attributes":",,E,",
+  "datatype":"SNWD","date":"2014-10-01T00:00:00"},
+  {"station":"GHCND:GME00111524","value":191,"attributes":",,E,",
+  "datatype":"TMAX","date":"2014-10-01T00:00:00"},
+  {"station":"GHCND:GME00111524","value":104,"attributes":",,E,",
+  "datatype":"TMIN","date":"2014-10-01T00:00:00"},
+  {"station":"GHCND:GM000004199","value":0,"attributes":",,E,",
+  "datatype":"PRCP","date":"2014-10-02T00:00:00"},
+  {"station":"GHCND:GM000004199","value":0,"attributes":",,E,",
+  "datatype":"SNWD","date":"2014-10-02T00:00:00"},
+  {"station":"GHCND:GM000004199","value":195,"attributes":",,E,",
+  "datatype":"TMAX","date":"2014-10-02T00:00:00"},
+  {"station":"GHCND:GM000004199","value":105,"attributes":",,E,",
+  "datatype":"TMIN","date":"2014-10-02T00:00:00"},
+  {"station":"GHCND:GME00111524","value":0,"attributes":",,E,",
+  "datatype":"PRCP","date":"2014-10-02T00:00:00"},
+  {"station":"GHCND:GME00111524","value":0,"attributes":",,E,",
+  "datatype":"SNWD","date":"2014-10-02T00:00:00"},
+  {"station":"GHCND:GME00111524","value":184,"attributes":",,E,",
+  "datatype":"TMAX","date":"2014-10-02T00:00:00"},
+  {"station":"GHCND:GME00111524","value":73,"attributes":",,E,",
+  "datatype":"TMIN","date":"2014-10-02T00:00:00"},
+  {"station":"GHCND:GM000004199","value":0,"attributes":",,E,",
+  "datatype":"PRCP","date":"2014-10-03T00:00:00"},
+  {"station":"GHCND:GM000004199","value":0,"attributes":",,E,",
+  "datatype":"SNWD","date":"2014-10-03T00:00:00"},
+  {"station":"GHCND:GM000004199","value":182,"attributes":",,E,",
+  "datatype":"TMAX","date":"2014-10-03T00:00:00"},
+  {"station":"GHCND:GM000004199","value":89,"attributes":",,E,",
+  "datatype":"TMIN","date":"2014-10-03T00:00:00"},
+  {"station":"GHCND:GME00111524","value":0,"attributes":",,E,",
+  "datatype":"PRCP","date":"2014-10-03T00:00:00"},
+  {"station":"GHCND:GME00111524","value":0,"attributes":",,E,",
+  "datatype":"SNWD","date":"2014-10-03T00:00:00"},
+  {"station":"GHCND:GME00111524","value":184,"attributes":",,E,",
+  "datatype":"TMAX","date":"2014-10-03T00:00:00"},
+  {"station":"GHCND:GME00111524","value":67,"attributes":",,E,",
+  "datatype":"TMIN","date":"2014-10-03T00:00:00"},
+  {"station":"GHCND:GM000004199","value":0,"attributes":",,E,",
+  "datatype":"PRCP","date":"2014-10-04T00:00:00"}],
+ "metadata":{"resultset":{"limit":25,"count":248,"offset":1}}}
+\end{verbatim}
+
+Now we have all information we need to build our command line interface which
+will, from the current information state, provide these functions.
+
+\begin{itemize}
+  \item List a specified count of available \texttt{datasets}
+  \item List all or selected count of available \texttt{locations}
+  \item Search for a specific city and print the \texttt{locationid}
+  \item Get the wheather data for a specific location base on the 
+    \texttt{locationid}
+\end{itemize}
+
+The invocation variants are listed in the table \ref{tbl:cli} on page 
+\pageref{tbl:cli}.
+
+\begin{table}[h]\footnotesize
+  \caption{Command line interface}
+  \begin{tabular}{p{5cm} p{7cm}}
+    \hline
+    \textbf{Command} & \textbf{Description} \\
+    \hline
+    noaa datasets -c 10 & Lists 10 datasets \\
+    noaa datasets & Lists all available datasets \\
+    noaa locations -c 10 & Lists 10 locations \\
+    noaa locations & List all available locations \\
+    noaa locations -s Munich & Searches of the Vancouver 
+    \texttt{locationid} \\
+    noaa data -l CITY:GM000019 -d GHCND -f 2014-10-01 -t 2014-10-31 &
+    Print weather data for Munich (-l) for the specified dataset (-d)
+    between 1st (-f) and 31st (-t) of October \\
+    \hline
+    \label{tbl:cli}
+  \end{tabular}
+\end{table}
+
+\section{Create the Project}
+\texttt{Elixir} comes with the tool \texttt{Mix} to create and manage 
+\texttt{Elixir} projects.
+
+To create a project we issue the \texttt{Mix} command \texttt{new}. But first
+we change directory where we want to have created our project tree.
+
+\begin{verbatim}
+\$ cd ~/Learn/Elixir/noaa
+\$ mix new noaa
+* creating README.md
+* creating .gitignore
+* creating mix.exs
+* creating config
+* creating config/config.exs
+* creating lib
+* creating lib/noaa.ex
+* creating test
+* creating test/test_helper.exs
+* creating test/noaa_test.exs
+
+Your mix project was created successfully.
+You can use mix to compile it, test it, and more:
+
+  cd noaa
+  mix test
+
+Run 'mix help' for more commands.
+
+\$
+\end{verbatim}
+
+Now we have a fully implemented project tree and we can right away run our 
+first test.
+
+\begin{verbatim}
+\$ cd noaa
+\$ mix test
+Compiled lib/noaa.ex
+Generated noaa.app
+.
+
+Finished in 0.07 seconds (0.07s on load, 0.00s on tests)
+1 tests, 0 failures
+
+Randomized with seed 963329
+\$
+\end{verbatim}
+
+But before we actually start we want to set up version control for 
+\texttt{noaa}.
+
+\begin{verbatim}
+\$ git init
+\$ git add .
+\$ git commit -am "Initial commit of noaa"
+\end{verbatim}
+
+\section{Implement the Command Line Interface}
+Let's try behaviour driven development (BDD) with \texttt{Elixir}. 
+\texttt{Elixir} comes with a test environment called \texttt{EXUnit}. With BDD
+we start with tests first and then implement the code. So let's try that.
+
+\includecode{test/cli\_test.exs}{lst:cli-test}{listings/cli_test.exs}
+
+This is a bare test file with only a description we want to test. Let's run it
+with
+
+\begin{verbatim}
+\$ mix test
+** (CompileError) test/cli_test.exs:4: module Noaa.CLI is not loaded and could
+not be found
+    (stdlib) lists.erl:1352: :lists.mapfoldl/3
+    (stdlib) lists.erl:1353: :lists.mapfoldl/3
+\end{verbatim}
+
+No surprise so far as we don't have an implementation of \texttt{Noaa.CLI} yet.
+So the next step is to get it compiled. To do this we have to implement
+\texttt{Noaa.CLI} next. As per convention the main source code of an 
+application is saved into \texttt{lib/project\_name}. Our proeject's name is
+\texttt{noaa}, hence our source code directory is named \texttt{lib/noaa}. Also
+a each module is saved to a separate file and each module is name spaced with
+the project name. So our first module for the command line interface (CLI) is
+called \texttt{noaa.CLI}. Table \ref{tbl:conventions} on page 
+\pageref{tbl:conventions} shows a summary of the conventions of \texttt{Elixir}
+projects.
+
+\begin{table}[h]\footnotesize
+  \caption{Conventions for Elixir Projects}
+  \begin{tabular}{p{2cm} p{10cm}}
+    \hline
+    \textbf{Command} & \textbf{Description} \\
+    \hline
+    \texttt{lib/noaa/} & Directory for main source code \\
+    \texttt{noaa.CLI} & Each module is name spaced with the project name \\
+                      & Each module lives in an own file \\
+
+    \hline
+    \label{tbl:conventions}
+  \end{tabular}
+\end{table}
+
+\includecode{lib/noaa/cli.ex}{lst:cli}{listings/cli.ex}
+
+With \texttt{cli.ex} in place we run the test again.
+
+\begin{verbatim}
+\$ mix test
+Compiled lib/noaa/cli.ex
+Generated noaa.app
+test/cli_test.exs:4: warning: unused import Noaa.CLI
+...........
+
+Finished in 0.1 seconds (0.1s on load, 0.00s on tests)
+11 tests, 0 failures
+
+Randomized with seed 289389
+\end{verbatim}
+
+This looks good our tests ran successfully without errors - but actually this
+is still boring. But now we get into the excitement. We now add our first 
+actual test for \texttt{:help}.
+
+\includecode{test/cli\_test1.exs}{lst:clitest1}{listings/cli_test1.exs}
+
+Note that we didn't implement the function in \texttt{lib/noaa/cli.ex}. This
+is why our test at that moment fails when we run \texttt{mix test}.
+
+\includecode{mix test}{lst:testresult1}{listings/test-result1}
+
+To make the test pass we will implement the parser section for \texttt{:help}.
+
+\includecode{lib/noaa/cli2.ex}{lst:cli2}{listings/cli2.ex}
+
+When we run the test again we will see all tests pass.
+
+\includecode{mix test}{lst:testresult2}{listings/test-result2}
+
+Now we implement the rest of the tests.
+
+\includecode{test/cli2\_test}{lst:clitest}{listings/cli_test2.exs}
+
+When we run the tests they should all fail except the one for \texttt{:help}.
+
+\includecode{mix test}{lst:testresult3}{listings/test-result3}
+
+To make them pass we implement the rest of the command line interface in 
+\texttt{lib/cli.ex}
+
+\includecode{lib/cli3.ex}{lst:cli3}{listings/cli3.ex}
+
+And we see them all pass. There is a specialty regarding the \texttt{data}
+command. This has more than one switch. Currently the switches have to be 
+provided in a specific order. This is not user friendly. We should only make 
+sure that all switches are provided. We write a test where we provide the 
+switches in an arbitrary sequence.
+
+\includecode{test/cli\_test3.exs}{lst:clitest3}{listings/cli_test3.exs}
+
+If we run the test we see it fail.
+
+\includecode{mix test}{lst:testresult5}{listings/test-result4}
+
+To make it pass we have to refactor our code where we do the parsing. We
+replace the \texttt{\_} and the \texttt{:data} parts with a function
+\texttt{parse\_remains} that is trying to match the command line arguments 
+that haven't been matched by the case statements before. 
+
+\includecode{lib/cli4.ex}{lst:cli4}{listings/cli4.ex}
+
+If we run the test again we see it pass.
+
+\includecode{mix test}{lst:testresult6}{listings/test-result5}
+
+Next we fetch the data from \texttt{NOAA}.
+
+\section{Fetch Weather Data from NOAA}
+The next step is to process the parsed command line data. So we add a 
+\texttt{process} function to our \texttt{run} function in the 
+\texttt{Noaa.CLI} module. But before we do that we write the test.
+
+\includecode{test/cli\_process\_test.exs}{lst:clitest4}
+            {listings/cli_process_test.exs}
+
+When we run the test we see it fail. To make the test pass we implement the
+\texttt{process} function with that much functionality in the \texttt{Noaa.CLI}
+module to make it pass. It is not the final solution but it makes the test pass 
+and it shows that the process functions are invoked.
+
+\includecode{lib/noaa/cli5.ex}{lst:cli5}{listings/cli5.ex}
+
+When we run the test again we see it pass. We cannot test the 
+\texttt{process(:help)} function because it calls \texttt{System.halt(0)} and
+this will cancel the \texttt{mix test}. So we test if \texttt{:help} is
+processed by running our function.
+
+\includecode{Running the function with mix}{lst:mixhelp}{listings/run-help}
+
+We see the nicely formatted \texttt{:help} message displayed. We can also run
+the other commands. Let's do that.
+
+\includecode{Running :data with mix}{lst:mixdata}{listings/run-data}
+
+Of course we don't see any output yet but at least we see not error message. 
+Now let's move on to implement the functionality to fetch the weather data
+from \texttt{NOAA}.
+
+\texttt{NOAA} is delivering data over a web service in the \texttt{JSON} 
+format. To fetch and parse the data we will use external libraries from 
+\url{http://hex.pm} which is similar to \url{https://rubygems.org} from where 
+you can install external libraries to your proect.
+
+\subsection{Installing external Libraries}
+We will use (on advise of Dave Thomas) \texttt{HTTPoison} as the HTTP client
+library and \texttt{jsx} as the \texttt{JSON} library.
+
+To install the libraries we have to add them to \texttt{mix.exs} in the 
+\texttt{deps} section.
+
+\includecode{mix.exs}{lst:mixexs}{listings/mix.exs}
+
+\texttt{\$ mix} is managing the dependencies for us. We can issue 
+\texttt{\$ mix deps} to list the dependencies and their status. To download the
+dependencies issue \texttt{\$ mix deps.get}. To actually install the
+libraries issue \texttt{\$ mix deps} again.
+
+Actual package management is done by \{Hex}. If it is not installed yet you
+will be asked whether to install \{Hex} when issuing \texttt{\$ mix deps}. With
+\texttt{\$ mix local} you can list available \texttt{Hex} tasks.
+
+Now do the installation. First we list the dependencies and their status and on
+the way install \texttt{Hex} if it not installed yet.
+
+\texttt{\$ mix deps}
+
+\includecode{mix deps}{lst:mixdeps}{listings/mix-deps}
+
+Then downlaod the dependencies
+
+\texttt{\$ mix deps.get}
+
+\includecode{mix deps.get}{list:mixdepsget}{listings/mix-deps-get}
+
+\texttt{\$ mix deps}
+
+Then finally install the libraries
+\includecode{mix deps}{lst:mixdeps2}{listings/mix-deps2}
+
+If you get the information that the packages are outdated (not compiled) then 
+follow the hint and issue \texttt{mix deps.compile}, even though the next time
+your project will be compiled the dependencies also get compiled. But we will 
+do that right away.
+
+\texttt{\$ mix deps.compile}
+
+\includecode{mix deps.compile}{lst:mixdepscompile}{listings/mix-deps-compile}
+
+If you look at your project tree you will see a new directory \texttt{deps}. 
+There you will find all the dependencies you have just compiled. 
+
+Now we are ready to go.
+
+\end{document}
