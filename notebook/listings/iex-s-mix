@@ -1,0 +1,6 @@
+Warning: could not run smart terminal, falling back to dumb one
+Eshell V6.3  (abort with ^G)
+Interactive Elixir (1.0.2) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> 
+BREAK: (a)bort (c)ontinue (p)roc info (i)nfo (l)oaded
+       (v)ersion (k)ill (D)b-tables (d)istribution

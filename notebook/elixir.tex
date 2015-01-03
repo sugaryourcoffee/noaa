@@ -92,7 +92,8 @@ a web service request to \texttt{NOAA}.
 
 Let's check out the web service with \texttt{curl}. Information about how to use
 the web service can be found at 
-\url{https://www.ncdc.noaa.gov/cdo-web/webservices/v2}.
+\url{https://www.ncdc.noaa.gov/cdo-web/webservices/v2}. The \texttt{-H} switch
+includes an extra header with the token to the HTTP \texttt{get} request.
 
 To know wich locations are available to retrieve wheather data for we can
 retrieve the data with the \texttt{/locations} url.
@@ -448,7 +449,7 @@ If we run the test again we see it pass.
 
 Next we fetch the data from \texttt{NOAA}.
 
-\section{Fetch Weather Data from NOAA}
+\section{Process the Parsed Command Line Data}
 The next step is to process the parsed command line data. So we add a 
 \texttt{process} function to our \texttt{run} function in the 
 \texttt{Noaa.CLI} module. But before we do that we write the test.
@@ -532,6 +533,354 @@ do that right away.
 If you look at your project tree you will see a new directory \texttt{deps}. 
 There you will find all the dependencies you have just compiled. 
 
-Now we are ready to go.
+Now we are good to go.
 
+\subsection{Fetching Data from NOAA}
+Except for the \texttt{:help} function we only have dummy implementations. We
+now want to implement \texttt{:datasets}, \texttt{:locations} and 
+\texttt{:data}. We will host these functions in the \texttt{Noaa.Webservice} 
+module.
+
+We first write the test with a stub implementation of \texttt{Noaa.Webservice}
+in place.
+
+\includecode{lib/noaa/webservice.ex}{lst:webservice}{listings/webservice.ex}
+
+\includecode{test/test\_webservice.exs}{lst:webservicetest}
+            {listings/webservice.ex}
+
+To get \texttt{HTTPoison} to work it has to be started as a separate 
+application. Actually we don't have to do that manually we rather add 
+\texttt{HTTPoison} to \texttt{mix.exs} in the \texttt{application} section.
+
+\includecode{mix.exs with HTTPoison}{lst:mixexsHTTPoison}{listings/mix1.exs}
+
+When we run the test it will fail. We then implement \texttt{Noaa.Webservice} 
+and run the test again.
+
+\includecode{list/noaa/webservice.ex}{lst:webservice1}{listings/webservice1.ex}
+
+And when we run the test now it will be executed without errors. Actually we 
+are only checking for the \texttt{:ok} response from the web service and ignore
+the body. If we get the data right we will see when we do the printing of the
+results. What we test here that we successfully can obtain data over the web 
+service. Actually this isn't a good idea to access the web service in tests.
+For one accesses are limited per day and two if we are running a lot of tests,
+what we actually should, it might put heavy load to the server. If we are done
+we can skip these tests. But for now (NOAA forgive me) we will use them.
+
+Currently \texttt{Noaa:Webservice.fetch} is returning the raw data from 
+\texttt{NOAA}. But what we want is the data in a way we can handle them more
+easily. This is the next step in our process chain. We are converting the data
+to an internal representation.
+
+\section{Converting the Response Data}
+The response from \texttt{NOAA} is in \texttt{JSON} format. To convert it to a
+data structure we use the previously installed \texttt{jsx} library. In the
+\texttt{Noaa.Webservice} we convert the data with \texttt{jsx}.
+
+\includecode{lib/noaa/webservice.ex}{lst:webservice2}{listings/webservice2.ex}
+
+Our test should still pass, as we are not checking for the body, but only for
+the \texttt{:ok} response.
+
+If we look the converted data it looks like in \ref{lst:jsonformat} on page
+\pageref{lst:jsonformat}.
+
+\includecode{JSON format of webservice response}{lst:jsonformat}
+            {listings/json-format}
+
+We can use our application in \texttt{iex} by starting \texttt[iex} with the
+\texttt{-S mix} switch.
+
+\begin{verbatim}
+\$ iex -S mix
+Erlang/OTP 17 [erts-6.3] [source] [64-bit] [smp:4:4] [async-threads:10] 
+[kernel-poll:false]
+Compiled lib/noaa.ex
+Compiled lib/noaa/webservice.ex
+lib/noaa/cli.ex:105: warning: variable city is unused
+Compiled lib/noaa/cli.ex
+Generated noaa.app
+Interactive Elixir (1.0.2) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)>
+iex(1)> ds = Noaa.Webservice.fetch("http://www.ncdc.noaa.gov/cdo-web/api/v2/data
+sets?limit=1")
+{:ok,
+ [{"results",
+   [[{"uid", "gov.noaa.ncdc:C00040"}, {"id", "ANNUAL"},
+     {"name", "Annual Summaries"}, {"datacoverage", 1},
+     {"mindate", "1831-02-01"}, {"maxdate", "2014-07-01"}]]},
+  {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {"offset", 1}]}]}]}
+\end{verbatim}
+
+We acutally want to work with the \texttt{"results"} and the 
+\texttt{"metadata"}. We can destructure the \texttt{tuple} with a pattern match.
+
+\begin{verbatim}
+iex(2)> { _ , body } = ds
+{:ok,
+ [{"results",
+   [[{"uid", "gov.noaa.ncdc:C00040"}, {"id", "ANNUAL"},
+     {"name", "Annual Summaries"}, {"datacoverage", 1},
+     {"mindate", "1831-02-01"}, {"maxdate", "2014-07-01"}]]},
+  {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {"offset", 1}]}]}]}
+iex(3)> body
+[{"results",
+  [[{"uid", "gov.noaa.ncdc:C00040"}, {"id", "ANNUAL"},
+    {"name", "Annual Summaries"}, {"datacoverage", 1},
+    {"mindate", "1831-02-01"}, {"maxdate", "2014-07-01"}]]},
+ {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {"offset", 1}]}]}]
+\end{verbatim}
+
+To access the \texttt{"results"} and the \texttt{"metadata"} with pattern
+matching or with \texttt{List.keyfind}. First we destructure the body with
+pattern matching.
+
+\begin{verbatim}
+iex(52)> [ results, metadata ] = body
+[{"results",
+  [[{"uid", "gov.noaa.ncdc:C00040"}, {"id", "ANNUAL"},
+    {"name", "Annual Summaries"}, {"datacoverage", 1},
+    {"mindate", "1831-02-01"}, {"maxdate", "2014-07-01"}]]},
+ {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {"offset", 1}]}]}]
+iex(53)> results
+{"results",
+ [[{"uid", "gov.noaa.ncdc:C00040"}, {"id", "ANNUAL"},
+   {"name", "Annual Summaries"}, {"datacoverage", 1}, {"mindate", "1831-02-01"},
+   {"maxdate", "2014-07-01"}]]}
+iex(54)> metadata
+{"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {"offset", 1}]}]}
+\end{verbatim}
+
+We do the same now with \texttt{List.keyfind}.
+
+\begin{verbatim}
+iex(4)> results = List.keyfind(body, "results", 0)
+{"results",
+ [[{"uid", "gov.noaa.ncdc:C00040"}, {"id", "ANNUAL"},
+   {"name", "Annual Summaries"}, {"datacoverage", 1}, {"mindate", "1831-02-01"},
+   {"maxdate", "2014-07-01"}]]} 
+iex(5)> meta = List.keyfind(body, "metadata", 0)
+{"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {"offset", 1}]}]} 
+\end{verbatim}
+
+The pattern matching is a conciser. We can destructure the body into the
+\texttt{"results"} and \texttt{"metadata"} in one swoop as we need two 
+commands with \texttt{List.keyfind}.
+
+This is not yet the data we need. What we want to do is iterate or recurse
+through the data of \texttt{"results"} and \texttt{"metadata"}'s 
+\texttt{resultset}. That is we just need the data of these two and then put 
+it into a collection. To retrieve the data we will now do all in one swoop 
+with pattern matching.
+Note that the \texttt{resultset} in nested in the \texttt{metadata}, so we
+have also a nested pattern to destructure the data.
+
+\begin{verbatim}
+iex(6)> [ {r, rd}, { m, [ { rs, rsd } ] } ] = body
+[{"results",
+  [[{"uid", "gov.noaa.ncdc:C00040"}, {"id", "ANNUAL"},
+    {"name", "Annual Summaries"}, {"datacoverage", 1},
+    {"mindate", "1831-02-01"}, {"maxdate", "2014-07-01"}]]},
+ {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {"offset", 1}]}]}]
+iex(7)> r
+"results"
+iex(8)> rd
+[[{"uid", "gov.noaa.ncdc:C00040"}, {"id", "ANNUAL"},
+  {"name", "Annual Summaries"}, {"datacoverage", 1}, {"mindate", "1831-02-01"},
+  {"maxdate", "2014-07-01"}]]
+iex(9)> m
+"metadata"
+iex(92)> rs
+"resultset"
+iex(93)> rsd
+[{"limit", 1}, {"count", 11}, {"offset", 1}]
+\end{verbatim}
+
+I think that is quite cool how \texttt{Elixir} can destructure a collection.
+Now both the \texttt{"results"} data and the \texttt{"metadata"} data we 
+want to put into a \texttt{HashDict} so we can access the values with
+\texttt{results["id"]} or just use comprehensions. To put the data into a 
+\texttt{HashDict} we use \texttt{Enum.map} and \texttt{Enum.into}.
+
+\begin{verbatim}
+iex(97)> result = rd |> Enum.map(&Enum.into(&1, HashDict.new))
+[#HashDict<[{"name", "Annual Summaries"}, {"maxdate", "2014-07-01"},
+  {"id", "ANNUAL"}, {"mindate", "1831-02-01"}, {"uid", "gov.noaa.ncdc:C00040"},
+  {"datacoverage", 1}]>]
+iex(98)> resultset = rsd |> Enum.into(HashDict.new)
+#HashDict<[{"limit", 1}, {"count", 11}, {"offset", 1}]> 
+\end{verbatim}
+
+Now we can access the data with the \texttt{Dict} interface.
+
+\begin{verbatim}
+iex(112)> resultset
+#HashDict<[{"limit", 1}, {"count", 11}, {"offset", 1}]>
+iex(113)> HashDict.keys h
+["name", "maxdate", "id", "mindate", "uid", "datacoverage"]
+iex(114)> HashDict.keys resultset
+["limit", "count", "offset"]
+iex(115)> resultset["count"]
+11
+iex(116)> [ h | t ] = result
+[#HashDict<[{"name", "Annual Summaries"}, {"maxdate", "2014-07-01"},
+  {"id", "ANNUAL"}, {"mindate", "1831-02-01"}, {"uid", "gov.noaa.ncdc:C00040"},
+  {"datacoverage", 1}]>]
+iex(117)> HashDict.keys h
+["name", "maxdate", "id", "mindate", "uid", "datacoverage"]
+iex(118)> h["maxdate"]
+"2014-07-01"
+iex(119)> HashDict.get(h, "mindate")
+"1831-02-01"
+\end{verbatim}
+
+We now now how to retrieve the data. Back in the \texttt{Noaa.CLI} module 
+we will decode the repsonse accordingly in the \texttt{process} functions.
+
+We will first write a test but again we cannot test for error response 
+when we issue a \texttt{System.halt} what we will do when the response
+returns an error. Therefore we test only the success response \texttt{:ok}.
+
+\includecode{test/decode\_test.exs}{lst:decodetest}
+            {listings/decode-test.exs}
+
+The implementation of the \texttt{decode\_response} follows.
+
+\includecode{lib/noaa/cli.ex}{lst:cli6}{listings/cli6.ex}
+
+And when we run the test it will pass.
+
+Next we want to transform the data \texttt{results} and \texttt{metadata} 
+into a \texttt{HashDict}. As we do that we have seen in ...
+
+Again we start with a test.
+
+\includecode{test/transform\_test.exs}{lst:transformtest}
+            {listings/transform-test.exs}
+
+And here the respective implementation of 
+\texttt{convert\_to\_list\_of\_hashdicts}.
+
+\includecode{lib/cli7.ex}{lst:cli7}{listings/cli7.ex}
+
+The next step in our implementation is to print the data to the console.
+
+\section{Print the Results}
+Printing the data is the actual result of our application. We will format
+the data as a table. To nicely format it we have to determine the max length
+of each value to have each column the same size. We also want to choose
+which values to show dependent on the command, that is \texttt{datasets},
+\texttt{locations} and \texttt{data}. All of these have metadata that is
+printed with each of the data.
+
+\subsection{Design the metadata Table}
+The \texttt{metadata} gives information about the data retrieved from
+\texttt{NOAA}. The \texttt{metadata} is shown in table 
+\ref{tbl:metadatadata}.
+
+\begin{table}[h]\footnotesize
+  \caption{Data of \texttt{metadata}}
+  \begin{tabular}{p{5cm} p{7cm}}
+    \hline
+    \textbf{Data} & \textbf{Example} \\
+    \hline
+    "limit"   & "1" \\
+    "count"   & "11" \\
+    "offset"  & "1" \\
+    \hline
+    \label{tbl:metadatadata}
+  \end{tabular}
+\end{table}
+
+\subsection{Design the datasets Table}
+The \texttt{datasets} describes the type of data that can be obtained with
+the \texttt{data} webservice. The \texttt{datasets} contains the data in
+table \ref{tbl:datasetsdata}.
+
+\begin{table}[h]\footnotesize
+  \caption{Data of \texttt{datasets}}
+  \begin{tabular}{p{5cm} p{7cm}}
+    \hline
+    \textbf{Data} & \textbf{Example} \\
+    \hline
+    "name"         & "Annual Summaries" \\
+    "id"           & "ANNUAL" \\
+    "mindate"      & "1831-02-01" \\
+    "maxdate"      & "2014-07-01" \\
+    "datacoverage" & 1 \\
+    \hline
+    \label{tbl:datasetsdata}
+  \end{tabular}
+\end{table}
+
+\subsection{Design the locations Table}
+The \texttt{locations} is the location for which the weather data can be 
+obtained from. Table \ref{tbl:locationsdata} shows the layout.
+
+\begin{table}[h]\footnotesize
+  \caption{Data of \texttt{locations}}
+  \begin{tabular}{p{5cm} p{7cm}}
+    \hline
+    \textbf{Data} & \textbf{Example} \\
+    \hline
+    "name"         & "Ajman, AE" \\
+    "id"           & "CITY:AE000002" \\
+    "mindate"      & "1944-03-01" \\
+    "maxdate"      & "2014-12-30" \\
+    "datacoverage" & 0.6855 \\
+    \hline
+    \label{tbl:locationsdata}
+  \end{tabular}
+\end{table}
+
+\subsection{Design the data Table}
+This is actually the weather data we want to display for a location. Table
+\ref{tbl:datadata} shows the design of the \texttt{data} table.
+
+\begin{table}[h]\footnotesize
+  \caption{Data of \texttt{data}}
+  \begin{tabular}{p{5cm} p{7cm}}
+    \hline
+    \textbf{Data} & \textbf{Example} \\
+    \hline
+    "datatype"   & "PRCP" \\
+    "value"      & 14 \\
+    "station"    & "GHCND:GM00004199" \\
+    "attributes" & ",,E," \\
+    "date"       & "2014-10-01" \\
+    "datacoverage" & 0.6855 \\
+    \hline
+    \label{tbl:datadata}
+  \end{tabular}
+\end{table}
+
+\subsection{Implementation of TableFormatter}
+Based on the design of the table formats of the different data types we are
+ready for the implementation. We provide the fields we want to display to
+the \texttt{TableFormatter}. The \texttt{TableFormatter} looks for the 
+largest fields in each column and creates the column layout accordingly.
+
+As usual test first, we write the test for the \texttt{TableFormatter}.
+
+\includecode{test/table\_formatter\_test.exs}{lst:tableformattertest}
+            {listings/table-formatter-test.exs}
+
+Now to the implememtation of the \texttt{TableFormatter} module.
+
+\includecode{lib/noaa/table\_formatter.ex}{lst:tableformatter}
+            {listings/table-formatter.ex}
+
+
+We are ready to go with our nicely implemented application. We can test it 
+from the commandline or within \texttt{iex}. Lets test it in \texttt{iex}.
+
+\begin{verbatim}
+\$ iex -S mix
+
+\end{verbatim}
+
+
+    
 \end{document}

@@ -1,0 +1,90 @@
+.........
+
+  1) test process :datasets to fetch datasets (CliProcessTest)
+     test/cli_process_test.exs:5
+     Assertion with == failed
+     code: result == "10 datasets"
+     lhs:  {:ok,
+            [{"results",
+              [[{"uid", "gov.noaa.ncdc:C00040"}, {"id", "ANNUAL"},
+                {"name", "Annual Summaries"}, {"datacoverage", 1},
+                {"mindate", "1831-02-01"}, {"maxdate", "2014-07-01"}]]},
+             {"metadata",
+              [{"resultset", [{"limit", 1}, {"count", 11}, {"offset", 1}]}]}]}
+     rhs:  "10 datasets"
+     stacktrace:
+       test/cli_process_test.exs:8
+
+
+
+  2) test process :locations to search for a city (CliProcessTest)
+     test/cli_process_test.exs:17
+     Assertion with == failed
+     code: result == "Munich location"
+     lhs:  "http://www.ncdc.noaa.gov/cdo-web/api/v2/locations?limit=1000"
+     rhs:  "Munich location"
+     stacktrace:
+       test/cli_process_test.exs:20
+
+
+
+  3) test process :locations to fetch locations (CliProcessTest)
+     test/cli_process_test.exs:11
+     Assertion with == failed
+     code: result == "10 locations"
+     lhs:  {:ok,
+            [{"results",
+              [[{"id", "CITY:AE000002"}, {"name", "Ajman, AE"},
+                {"datacoverage", 0.6855}, {"mindate", "1944-03-01"},
+                {"maxdate", "2014-12-30"}]]},
+             {"metadata",
+              [{"resultset",
+                [{"limit", 1}, {"count", 38497}, {"offset", 1}]}]}]}
+     rhs:  "10 locations"
+     stacktrace:
+       test/cli_process_test.exs:14
+
+
+
+  4) test process :data to fetch data for a specified city (CliProcessTest)
+     test/cli_process_test.exs:23
+     Assertion with == failed
+     code: result == "Data for specified city"
+     lhs:  {:ok,
+            [{"results",
+              [[{"station", "GHCND:GM000004199"}, {"value", 14},
+                {"attributes", ",,E,"}, {"datatype", "PRCP"},
+                {"date", "2014-10-01T00:00:00"}],
+               [{"station", "GHCND:GM000004199"}, {"value", 0},
+                {"attributes", ",,E,"}, {"datatype", "SNWD"},
+                {"date", "2014-10-01T00:00:00"}],
+               [{"station", "GHCND:GM000004199"}, {"value", 193},
+                {"attributes", ",,E,"}, {"datatype", "TMAX"},
+                {"date", "2014-10-01T00:00:00"}],
+               [{"station", "GHCND:GM000004199"}, {"value", 120},
+                {"attributes", ",,E,"}, {"datatype", "TMIN"},
+                {"date", "2014-10-01T00:00:00"}],
+               [{"station", "GHCND:GME00111524"}, {"value", 3},
+                {"attributes", ",,E,"}, {"datatype", "PRCP"},
+                {"date", "2014-10-01T00:00:00"}],
+               [{"station", "GHCND:GME00111524"}, {"value", 0},
+                {"attributes", ",,E,"}, {"datatype", "SNWD"},
+                {"date", "2014-10-01T00:00:00"}],
+               [{"station", "GHCND:GME00111524"}, {"value", 191},
+                {"attributes", ",,E,"}, {"datatype", "TMAX"},
+                {"date", "2014-10-01T00:00:00"}],
+               [{"station", "GHCND:GME00111524"}, {"value", 104},
+                {"attributes", ",,E,"}, {"datatype", "TMIN"},
+                {"date", "2014-10-01T00:00:00"}]]},
+             {"metadata",
+              [{"resultset", [{"limit", 25}, {"count", 8}, {"offset", 1}]}]}]}
+     rhs:  "Data for specified city"
+     stacktrace:
+       test/cli_process_test.exs:30
+
+.....
+
+Finished in 10.3 seconds (0.2s on load, 10.0s on tests)
+18 tests, 4 failures
+
+Randomized with seed 349663

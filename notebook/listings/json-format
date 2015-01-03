@@ -1,0 +1,8 @@
+{:ok,
+[{"results",
+  [[{"uid", "gov.noaa.ncdc:C00040"}, {"id", "ANNUAL"},
+    {"name", "Annual Summaries"}, {"datacoverage", 1},
+    {"mindate", "1831-02-01"}, {"maxdate", "2014-07-01"}]]},
+ {"metadata",
+  [{"resultset", [{"limit", 1}, {"count", 11}, {"offset", 1}]}]}]}
+

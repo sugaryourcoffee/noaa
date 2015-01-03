@@ -1,0 +1,5 @@
+
+== Compilation error on file lib/noaa/webservice.ex ==
+** (SyntaxError) lib/noaa/webservice.ex:6: syntax error before: '('
+    (elixir) lib/kernel/parallel_compiler.ex:97: anonymous fn/4 in Kernel.ParallelCompiler.spawn_compilers/8
+

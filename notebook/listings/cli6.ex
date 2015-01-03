@@ -96,14 +96,12 @@ defmodule Noaa.CLI do
     datasets_url(count)
     |> Noaa.Webservice.fetch
     |> decode_response
-    |> transform_to_hashdicts
   end
 
   def process({:locations, count}) when is_integer(count) do
     locations_url(count)
     |> Noaa.Webservice.fetch
     |> decode_response
-    |> transform_to_hashdicts
   end
 
   def process({:locations, city}) do
@@ -114,7 +112,6 @@ defmodule Noaa.CLI do
     data_url(values)
     |> Noaa.Webservice.fetch
     |> decode_response
-    |> transform_to_hashdicts
   end
 
   def datasets_url(count) do
@@ -144,11 +141,6 @@ defmodule Noaa.CLI do
     {_, message} = List.keyfind(reason, "message", 0)
     IO.puts "Error fetching data from NOAA: #{message}"
     System.halt(2) 
-  end
-
-  def transform_to_hashdicts([ results | metadata ]) do
-    [ results  |> Enum.map(&Enum.into(&1, HashDict.new)),
-      metadata |> Enum.map(&Enum.into(&1, HashDict.new)) ] 
   end
 
 end

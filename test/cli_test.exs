@@ -38,10 +38,10 @@ defmodule CliTest do
                        "--location", "Munich",
                        "--from",     "2014-12-24",
                        "--to",       "2015-01-01"]) == { :data, 
-                                                         ["ABCD",
-                                                         "Munich",
-                                                         "2014-12-24",
-                                                         "2015-01-01"] }
+                                                         [dataset: "ABCD",
+                                                         location: "Munich",
+                                                         from: "2014-12-24",
+                                                         to: "2015-01-01"] }
   end
 
   test ":data returned with values provided in arbitrary sequence" do
@@ -50,10 +50,10 @@ defmodule CliTest do
                        "--from",     "2014-12-24",
                        "--to",       "2015-01-01",
                        "--dataset",  "ABCD"]      ) == { :data,
-                                                         ["ABCD",
-                                                         "Munich",
-                                                         "2014-12-24",
-                                                         "2015-01-01"] }
+                                                         [dataset: "ABCD",
+                                                         location: "Munich",
+                                                         from: "2014-12-24",
+                                                         to: "2015-01-01"] }
   end
 
 end
