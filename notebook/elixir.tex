@@ -499,9 +499,10 @@ To install the libraries we have to add them to \texttt{mix.exs} in the
 dependencies issue \texttt{\$ mix deps.get}. To actually install the
 libraries issue \texttt{\$ mix deps} again.
 
-Actual package management is done by \{Hex}. If it is not installed yet you
-will be asked whether to install \{Hex} when issuing \texttt{\$ mix deps}. With
-\texttt{\$ mix local} you can list available \texttt{Hex} tasks.
+Actual package management is done by \texttt{Hex}. If it is not installed 
+yet you will be asked whether to install \texttt{Hex} when issuing 
+\texttt{\$ mix deps}. With \texttt{\$ mix local} you can list available 
+\texttt{Hex} tasks.
 
 Now do the installation. First we list the dependencies and their status and on
 the way install \texttt{Hex} if it not installed yet.
@@ -590,8 +591,8 @@ If we look the converted data it looks like in \ref{lst:jsonformat} on page
 \includecode{JSON format of webservice response}{lst:jsonformat}
             {listings/json-format}
 
-We can use our application in \texttt{iex} by starting \texttt[iex} with the
-\texttt{-S mix} switch.
+We can use our application in \texttt{iex} by starting \texttt{iex} with the
+\texttt{\$ mix -S mix} switch.
 
 \begin{verbatim}
 \$ iex -S mix
@@ -850,7 +851,6 @@ This is actually the weather data we want to display for a location. Table
     "station"    & "GHCND:GM00004199" \\
     "attributes" & ",,E," \\
     "date"       & "2014-10-01" \\
-    "datacoverage" & 0.6855 \\
     \hline
     \label{tbl:datadata}
   \end{tabular}
@@ -872,15 +872,251 @@ Now to the implememtation of the \texttt{TableFormatter} module.
 \includecode{lib/noaa/table\_formatter.ex}{lst:tableformatter}
             {listings/table-formatter.ex}
 
+Now we have all pieces available and can finalize the application. We update
+the \texttt{process} functions in \texttt{lib/noaa/cli.ex} after we have
+written the respective test as shown in \ref{lst:cliprocesstest2}.
+
+\includecode{test/cli\_process\_test}{lst:cliprocesstest2}
+            {listings/cli_process_test2.exs}
+
+Then we do the final implementation in \texttt{lib/cli.ex}.
+
+\includecode{lib/noaa/cli.ex}{lst:cli7}{listings/cli7.ex}
+
+When we run the test they should all pass. Except for one test for that we
+didn't do the implemenation. \texttt{process({:locations, city})} we haven't
+implemented yet. We also should extend our interface by the \texttt{limit}
+switch. Currently when invoking \texttt{:datasets} or \texttt{:locations} we
+always start at the first record. This is actually not usefull. We cover 
+those two pending topics (maybe) later.
 
 We are ready to go with our nicely implemented application. We can test it 
 from the commandline or within \texttt{iex}. Lets test it in \texttt{iex}.
 
 \begin{verbatim}
 \$ iex -S mix
+iex(1)> Noaa.CLI.process({:datasets, 12})
+Datasets
+name                      | id         | mindate    | maxdate    | datacoverage
+--------------------------+------------+------------+------------+-------------
+Annual Summaries          | ANNUAL     | 1831-02-01 | 2014-07-01 | 1         
+Daily Summaries           | GHCND      | 1763-01-01 | 2014-12-31 | 1        
+Monthly Summaries         | GHCNDMS    | 1763-01-01 | 2014-12-01 | 1       
+Weather Radar (Level II)  | NEXRAD2    | 1991-06-05 | 2015-01-04 | 0.95     
+Weather Radar (Level III) | NEXRAD3    | 1994-05-20 | 2015-01-01 | 0.95     
+Normals Annual/Seasonal   | NORMAL_ANN | 2010-01-01 | 2010-01-01 | 1       
+Normals Daily             | NORMAL_DLY | 2010-01-01 | 2010-12-31 | 1       
+Normals Hourly            | NORMAL_HLY | 2010-01-01 | 2010-12-31 | 1      
+Normals Monthly           | NORMAL_MLY | 2010-01-01 | 2010-12-01 | 1     
+Precipitation 15 Minute   | PRECIP_15  | 1970-05-12 | 2013-07-01 | 0.25 
+Precipitation Hourly      | PRECIP_HLY | 1900-01-01 | 2013-10-01 | 1    
+                                                                       
+Metadata
+limit | count | offset
+------+-------+-------
+12    | 11    | 1     
+iex(2)> Noaa.CLI.process({:locations, 10})
+                                          
+Locations
+name            | id            | mindate    | maxdate    | datacoverage
+----------------+---------------+------------+------------+-------------
+Ajman, AE       | CITY:AE000002 | 1944-03-01 | 2014-12-30 | 0.6859      
+Dubai, AE       | CITY:AE000003 | 1944-03-01 | 2014-12-30 | 0.6859      
+Sharjah, AE     | CITY:AE000006 | 1944-03-01 | 2014-12-30 | 0.6859      
+Algiers, AG     | CITY:AG000001 | 1877-04-01 | 2014-12-30 | 1          
+Annaba, AG      | CITY:AG000002 | 1909-11-01 | 1937-12-31 | 0.9527    
+Bejaia, AG      | CITY:AG000005 | 1909-11-01 | 1938-12-29 | 0.9596   
+Constantine, AG | CITY:AG000006 | 1880-05-01 | 1938-12-30 | 0.8736  
+Laghouat, AG    | CITY:AG000008 | 1888-01-01 | 1938-12-30 | 0.9036 
+Tamanrasset, AG | CITY:AG000016 | 1940-01-01 | 2014-02-18 | 0.9989
+Baku, AJ        | CITY:AJ000001 | 1881-07-01 | 1992-01-31 | 0.991 
+                                                                 
+Metadata
+limit | count | offset
+------+-------+-------
+10    | 38497 | 1    
 
+iex(3)> Noaa.CLI.process({:data, [dataset: "GHCND", \
+        location: "CITY:AE000002", from: "2014-10-01", to: "2014-10-01"]})
+
+Weather Data
+datatype | value | station           | attributes | date
+---------+-------+-------------------+------------+--------------------
+PRCP     | 0     | GHCND:AE000041196 | ,,S,       | 2014-10-01T00:00:00
+TMAX     | 381   | GHCND:AE000041196 | ,,S,       | 2014-10-01T00:00:00
+TMIN     | 285   | GHCND:AE000041196 | ,,S,       | 2014-10-01T00:00:00
+
+Metadata
+limit | count | offset
+------+-------+-------
+25    | 3     | 1     
 \end{verbatim}
 
+\section{Make the Command-Line Executable}
+What we want to do is call our application from the command line without the
+\texttt{Elixir} command. To enable this for our application we have to add
+\texttt{[ main\_module: Noaa.CLI ]} to \texttt{mix.exs} like shown in 
+listing \ref{lst:mix2exs}.
 
+\includecode{mix.exs}{lst:mix2exs}{listings/mix2.exs}
+
+\texttt{escript} is \texttt{Erlang} utility that can run \texttt{Zip} 
+archives that contain pre-compiled applications. \texttt{escript} requires
+a \texttt{main} function in the \texttt{module} depicted in the 
+\texttt{escript} directive in \texttt{mix.exs}. The \texttt{main} function
+in \texttt{Noaa.CLI} is actuall the \texttt{run} function. So the only thing
+we have to do is to rename \texttt{run} to \texttt{main}.
+
+\includecode{lib/noaa/cli.ex}{lst:cli8}{listings/cli8.ex}
+
+To make our application executable we package it with 
+\texttt{\$ mix escript.build}.
     
+\begin{verbatim}
+$ mix escript.build
+Compiled lib/noaa.ex
+Compiled lib/noaa/webservice.ex
+Compiled lib/noaa/table_formatter.ex
+lib/noaa/cli.ex:105: warning: variable city is unused
+Compiled lib/noaa/cli.ex
+Generated noaa.app
+Consolidated List.Chars
+Consolidated Access
+Consolidated Collectable
+Consolidated String.Chars
+Consolidated Inspect
+Consolidated Enumerable
+Consolidated Range.Iterator
+Consolidated protocols written to _build/dev/consolidated
+Generated escript noaa with MIX_ENV=dev
+\end{verbatim}
+
+Now let's test it from the command line with \texttt{\$ ./noaa}
+
+\begin{verbatim}
+$ ./noaa --datasets 12
+
+Datasets
+name                      | id         | mindate    | maxdate    | datacoverage
+--------------------------+------------+------------+------------+-------------
+Annual Summaries          | ANNUAL     | 1831-02-01 | 2014-07-01 | 1        
+Daily Summaries           | GHCND      | 1763-01-01 | 2014-12-31 | 1        
+Monthly Summaries         | GHCNDMS    | 1763-01-01 | 2014-12-01 | 1        
+Weather Radar (Level II)  | NEXRAD2    | 1991-06-05 | 2015-01-04 | 0.95     
+Weather Radar (Level III) | NEXRAD3    | 1994-05-20 | 2015-01-01 | 0.95     
+Normals Annual/Seasonal   | NORMAL_ANN | 2010-01-01 | 2010-01-01 | 1        
+Normals Daily             | NORMAL_DLY | 2010-01-01 | 2010-12-31 | 1        
+Normals Hourly            | NORMAL_HLY | 2010-01-01 | 2010-12-31 | 1        
+Normals Monthly           | NORMAL_MLY | 2010-01-01 | 2010-12-01 | 1        
+Precipitation 15 Minute   | PRECIP_15  | 1970-05-12 | 2013-07-01 | 0.25     
+                                                                            
+Metadata
+limit | count | offset
+------+-------+-------
+10    | 11    | 1     
+\end{verbatim}
+
+\section{Commenting the functions}
+This is something I should have done while coding. After being done it is 
+quite cumbersome. But nevertheless \texttt{Elixir} comes with a fantastic
+documentation feature that allows you not only to insert code like you 
+would test your application in \texttt{iex} but it also tests whether this
+code actually runs. Let's document the \texttt{lib/noaa/table\_formatter.ex}
+module as this is the only where we can create \texttt{iex} commands without
+reaching for the \texttt{NOAA} webservice over the internet.
+
+\includecode{lib/noaa/table\_formatter.ex}{lst:tableformatter2}
+            {listings/table-formatter2.ex}
+
+To test the comments, that is the included \texttt{iex} commands we write a
+short test that checks that the commands are valid.
+
+\includecode{test/doc\_test.exs}{lst:doctest}{listings/doc-test.exs}
+
+We run the test with \texttt{mix} as we test all our code.
+
+\begin{verbatim}
+pierre@saltspring:~/Learn/Elixir/noaa$ mix test test/doc_test.exs
+Compiled lib/noaa/table_formatter.ex
+lib/noaa/cli.ex:149: warning: variable city is unused
+Compiled lib/noaa/cli.ex
+Generated noaa.app
+...
+
+Finished in 0.1 seconds (0.1s on load, 0.00s on tests)
+3 tests, 0 failures
+
+Randomized with seed 362781 
+\end{verbatim}
+
+\section{Project Documentation}
+\texttt{Elixir} also comes equipped with a documentation generator called
+\texttt{ExDoc}. To utilize this we have to add it to our dependencies in our
+\texttt{mix.exs} file.
+
+\includecode{mix.exs}{lst:mix3}{listings/mix3.exs}
+
+To install \texttt{ExDoc} issue the command \texttt{\$ mix deps.get} from
+the command line. To create the documentation call \texttt{\$ mix docs}. If 
+you get an error saying 
+
+\begin{verbatim}
+** (RuntimeError) Could not find a markdown processor to be used by ex_doc.
+You can either:
+
+* Add {:earmark, ">= 0.0.0"} to your mix.exs deps
+  to use an Elixir-based markdown processor
+
+* Add {:markdown, github: "devinus/markdown"} to your mix.exs deps
+  to use a C-based markdown processor
+
+* Ensure pandoc (http://johnmacfarlane.net/pandoc) is available in your syst$
+m
+  to use it as an external tool
+\end{verbatim}
+
+Then follow the instructions. For instance add \texttt{earmark} as 
+dependency.
+
+\includecode{mix.exs}{lst:mix4}{listings/mix4.exs}
+
+Then try again \texttt{\$ mix deps.get} and it should create your 
+documentation.
+
+\begin{verbatim}
+pierre@saltspring:~/Learn/Elixir/noaa$ mix docs
+==> earmark
+Compiled lib/earmark/context.ex
+Compiled lib/earmark.ex
+Compiled lib/earmark/cli.ex
+Compiled lib/earmark/helpers.ex
+Compiled lib/earmark/inline.ex
+Compiled lib/earmark/parser.ex
+Compiled lib/earmark/html_renderer.ex
+Compiled lib/earmark/line.ex
+Compiled lib/earmark/block.ex
+Generated earmark.app
+==> noaa
+Compiled lib/noaa.ex
+Compiled lib/noaa/webservice.ex
+Compiled lib/noaa/table_formatter.ex
+lib/noaa/cli.ex:149: warning: variable city is unused
+Compiled lib/noaa/cli.ex
+Generated noaa.app
+Docs successfully generated.
+View them at "doc/index.html".
+\end{verbatim}
+
+Now open \texttt{doc/index.html} and you will see a nicely formatted 
+application documentation.
+
+\section{Closing}
+So that's it as a brief overview. That was a lot stuff. But we scratched
+only the surface of \texttt{Elixir}. What we didn't cover is 
+\texttt{logging}and multi processing. This is all nicely covered by 
+Dave Thomas' book \texttt{Programming Elixr} which can be found at 
+\url{https://pragprog.com/book/elixir/programming-elixir}. This short 
+description is based on the book from Dave Thomas. As Elixir is a quite new 
+language there are only 2 books
+available at the moment. You can find them all at \url{http://elixir-lang.org/}. 
 \end{document}

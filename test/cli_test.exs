@@ -9,27 +9,27 @@ defmodule CliTest do
   end
  
   test ":datasets returned with default count when only dataset is given" do
-    assert parse_args(["--datasets"]) == { :dataset, 10 }
+    assert parse_args(["--datasets"]) == { :datasets, 10 }
   end
 
   test ":datasets returned with count if dataset and count is given" do
-    assert parse_args(["--datasets", "--count", "5"]) == { :dataset, 5 }
-    assert parse_args(["--datasets", "-c",      "5"]) == { :dataset, 5 }
+    assert parse_args(["--datasets", "--count", "5"]) == { :datasets, 5 }
+    assert parse_args(["--datasets", "-c",      "5"]) == { :datasets, 5 }
   end
 
   test ":location returned with default count if only location is given" do
-    assert parse_args(["--locations"]) == { :location, 10 }
+    assert parse_args(["--locations"]) == { :locations, 10 }
   end
 
   test ":location returned with count if location and count is given" do
-    assert parse_args(["--locations", "--count", "8"]) == { :location, 8 }
-    assert parse_args(["--locations", "-c",     "8"])  == { :location, 8 }
+    assert parse_args(["--locations", "--count", "8"]) == { :locations, 8 }
+    assert parse_args(["--locations", "-c",     "8"])  == { :locations, 8 }
   end
 
   test ":location returned with city location and city is given" do
     assert parse_args(["--locations", 
                        "--location", 
-                       "Munich"]     ) == { :location, "Munich" }
+                       "Munich"]     ) == { :locations, "Munich" }
   end
 
   test ":data returned with values provided in the correct sequence" do

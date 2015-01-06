@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Noaa.TableFormatter</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">noaa v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Noaa.html">Noaa</a> &rarr; <a href="Noaa.TableFormatter.html">TableFormatter</a></div>
+      <h1>
+        Noaa.TableFormatter
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>Is formatting the results of the fetched data and the metadata into a table.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#extract_columns/2">extract_columns(data, header)</a></td>
+  
+    <td class="summary_synopsis"><p>The header contains the header names of the data. The header filters the
+columns that should be extracted and displayed</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#formatter_string/2">formatter_string(column_widths, separator)</a></td>
+  
+    <td class="summary_synopsis"><p>Creates a formatter string based on the column widths</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#max_column_widths/2">max_column_widths(columns, header)</a></td>
+  
+    <td class="summary_synopsis"><p>Determines based on the header columns and the row columns the maximum 
+column widths so the data fits into the columns</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#print/2">print(rows, header)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#print_header/2">print_header(header, formatter)</a></td>
+  
+    <td class="summary_synopsis"><p>Prints the table header</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#print_horizontal_line/2">print_horizontal_line(arg1, widths)</a></td>
+  
+    <td class="summary_synopsis"><p>Prints a horizontal line between the header and the table body</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#print_table/2">print_table(data, formatter)</a></td>
+  
+    <td class="summary_synopsis"><p>Prints the extracted rows into a table format</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="extract_columns/2">
+    <span class="signature"><strong>extract_columns(data, header)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#extract_columns/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>The header contains the header names of the data. The header filters the
+columns that should be extracted and displayed.</p>
+<h2>Example</h2>
+<pre><code>iex&gt; data   = [[ aaa: &quot;a1&quot;, b: &quot;b1&quot;, c: &quot;c1&quot;], 
+...&gt;           [ aaa: &quot;a2&quot;, b: &quot;b2&quot;, c: &quot;c2222&quot;]]
+iex&gt; header =  [ :aaa, :c ]
+iex&gt; Noaa.TableFormatter.extract_columns(data, header)
+[ [ &quot;a1&quot;, &quot;a2&quot; ], [ &quot;c1&quot;, &quot;c2222&quot; ] ]</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="formatter_string/2">
+    <span class="signature"><strong>formatter_string(column_widths, separator)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#formatter_string/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Creates a formatter string based on the column widths.</p>
+<h2>Example</h2>
+<pre><code>iex&gt; column_widths = [ 3, 5 ]
+iex&gt; separator      = &quot; | &quot;
+iex&gt; Noaa.TableFormatter.formatter_string(column_widths, separator)
+&quot;~-3s | ~-5s~n&quot;</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="max_column_widths/2">
+    <span class="signature"><strong>max_column_widths(columns, header)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#max_column_widths/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Determines based on the header columns and the row columns the maximum 
+column widths so the data fits into the columns.</p>
+<h2>Example</h2>
+<pre><code>iex&gt; columns = [[ &quot;a1&quot;, &quot;a2&quot;], 
+...&gt;            [ &quot;c1&quot;, &quot;c2222&quot;]]
+iex&gt; header  = [ :aaa, :c ]
+iex&gt; Noaa.TableFormatter.max_column_widths(columns, header)  
+[ 3, 5 ]</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="print/2">
+    <span class="signature"><strong>print(rows, header)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#print/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="print_header/2">
+    <span class="signature"><strong>print_header(header, formatter)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#print_header/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Prints the table header.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="print_horizontal_line/2">
+    <span class="signature"><strong>print_horizontal_line(arg1, widths)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#print_horizontal_line/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Prints a horizontal line between the header and the table body.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="print_table/2">
+    <span class="signature"><strong>print_table(data, formatter)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#print_table/2" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Prints the extracted rows into a table format.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

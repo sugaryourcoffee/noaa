@@ -28,9 +28,7 @@ defmodule Noaa.Mixfile do
   defp deps do
     [
       { :httpoison, "~> 0.5.0" },
-      { :jsx,       "~> 2.4.0" },
-      { :ex_doc,    github: "elixir-lang/ex_doc" },
-      { :earmark,   "~> 0.1" }
+      { :jsx,       "~> 2.4.0" }
     ]
   end
 

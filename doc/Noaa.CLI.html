@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Noaa.CLI</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="css/elixir.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8">
+      relpath = '';
+      if (relpath != '') relpath += '/';
+    </script>
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+
+    <section id="content">
+      <div class="breadcrumbs">noaa v0.0.1 &rarr; <a href="overview.html">Overview</a> &rarr; <a href="Noaa.html">Noaa</a> &rarr; <a href="Noaa.CLI.html">CLI</a></div>
+      <h1>
+        Noaa.CLI
+        
+      </h1>
+
+      <ul class="summary_links">
+        
+          <li><a href="#summary">Summary</a></li>
+        
+        
+        
+          <li><a href="#functions_details">Functions</a></li>
+        
+        
+        
+      </ul>
+
+      
+        <section id="moduledoc" class="docstring">
+          <p>Handle the command line parsing and dispatching to the respective functions
+that list the weather conditions of provided cities.</p>
+
+        </section>
+      
+
+      
+
+      
+        <h2 id="summary">Summary<span class="detail_header_links"><a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a></span></h2>
+        <table class="summary">
+          <tr>
+  <td class="summary_signature"><a href="#data_url/1">data_url(values)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the data URL</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#datasets_url/1">datasets_url(count)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the datasets URL</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#decode_response/1">decode_response(arg1)</a></td>
+  
+    <td class="summary_synopsis"><p>In case there is an error when fetching data from NOAA the error message is
+printed and the application exits with code 2</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#locations_url/1">locations_url(count)</a></td>
+  
+    <td class="summary_synopsis"><p>Returns the locations URL</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#main/1">main(argv)</a></td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#parse_args/1">parse_args(argv)</a></td>
+  
+    <td class="summary_synopsis"><p><code class="inline">argv</code> can be used with one of the following options</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#parse_remains/1">parse_remains(arg1)</a></td>
+  
+    <td class="summary_synopsis"><p>If none of the other commands match, then :help is invoked</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#print/3">print(url, title, columns)</a></td>
+  
+    <td class="summary_synopsis"><p>Prints the data in a table format containing the results and the metadata</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#process/1">process(arg1)</a></td>
+  
+    <td class="summary_synopsis"><p>Processes the data command and finally prints the weather data of the
+specified location. A location can be obtained by the locations command</p>
+</td>
+  
+</tr>
+<tr>
+  <td class="summary_signature"><a href="#transform_to_hashdicts/1">transform_to_hashdicts(list1)</a></td>
+  
+    <td class="summary_synopsis"><p>Transforms the bodies results and metadata into HashDicts</p>
+</td>
+  
+</tr>
+
+        </table>
+      
+
+      
+
+      
+        <section id="functions_details" class="details_list">
+          <h2>Functions</h2>
+          <section class="detail">
+  <div class="detail_header" id="data_url/1">
+    <span class="signature"><strong>data_url(values)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#data_url/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Returns the data URL</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="datasets_url/1">
+    <span class="signature"><strong>datasets_url(count)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#datasets_url/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Returns the datasets URL</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="decode_response/1">
+    <span class="signature"><strong>decode_response(arg1)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#decode_response/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>In case there is an error when fetching data from NOAA the error message is
+printed and the application exits with code 2.</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="locations_url/1">
+    <span class="signature"><strong>locations_url(count)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#locations_url/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Returns the locations URL</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="main/1">
+    <span class="signature"><strong>main(argv)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#main/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="parse_args/1">
+    <span class="signature"><strong>parse_args(argv)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#parse_args/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p><code class="inline">argv</code> can be used with one of the following options.</p>
+<ul>
+<li>datasets  —count   COUNT
+</li>
+<li>locations —count   COUNT
+</li>
+<li>locations —search  CITY
+</li>
+<li>data      —dataset DATASET —location LOCATION —from DATE —to DATE
+</li>
+</ul>
+<p>Return the tuple of <code class="inline">{:dataset, COUNT}</code>, <code class="inline">{:locations, COUNT}</code>,
+<code class="inline">{:locations, CITY}</code>, <code class="inline">{:data, DATASET, LOCATION, DATE, DATE}</code> or :help. </p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="parse_remains/1">
+    <span class="signature"><strong>parse_remains(arg1)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#parse_remains/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>If none of the other commands match, then :help is invoked</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="print/3">
+    <span class="signature"><strong>print(url, title, columns)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#print/3" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Prints the data in a table format containing the results and the metadata</p>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="process/1">
+    <span class="signature"><strong>process(arg1)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#process/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Processes the data command and finally prints the weather data of the
+specified location. A location can be obtained by the locations command.</p>
+<h2>Example</h2>
+<p>  params  = params1 ++ params2
+  Noaa.CLI.process({:data, [datasets: “GHCND”, location: “CITY:AE000002”, </p>
+<pre><code>from: &quot;2014-10-01&quot;, to: &quot;2014-10-01&quot;]</code></pre>
+
+  </section>
+  
+</section>
+<section class="detail">
+  <div class="detail_header" id="transform_to_hashdicts/1">
+    <span class="signature"><strong>transform_to_hashdicts(list1)</strong></span>
+    <div class="detail_header_links">
+      <span class="detail_type">(function)</span>
+      <a href="#transform_to_hashdicts/1" class="detail_link" title="Link to this function">#</a>
+      <a class="to_top_link" href="#content" title="To the top of the page">&uarr;</a>
+    </div>
+  </div>
+  
+  <section class="docstring">
+    <p>Transforms the bodies results and metadata into HashDicts.</p>
+
+  </section>
+  
+</section>
+
+        </section>
+      
+
+      
+
+      
+    </section>
+  </body>
+</html>

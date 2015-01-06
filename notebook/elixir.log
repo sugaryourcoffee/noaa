@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.20)  2 JAN 2015 16:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.20)  6 JAN 2015 02:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -218,7 +218,11 @@ File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 File: listings.cfg 2013/08/26 1.5b listings configuration
 ))
 Package: listings 2013/08/26 1.5b (Carsten Heinz)
- (./elixir.aux)
+ (./elixir.aux
+
+LaTeX Warning: Label `lst:cli7' multiply defined.
+
+)
 \openout1 = `elixir.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -235,7 +239,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count106
 \scratchdimen=\dimen117
@@ -316,132 +320,132 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 73.
  [2]
-Overfull \hbox (32.9967pt too wide) in paragraph at lines 168--168
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 169--169
 []  \OT1/cmtt/m/n/10 {"uid":"gov.noaa.ncdc:C00040","id":"ANNUAL","name":"Annual
  Summaries",[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 168--168
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":1,"mindate":"1831-02-01","maxdate":"2014-0
 7-01"},[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 168--168
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 169--169
 []  \OT1/cmtt/m/n/10 {"uid":"gov.noaa.ncdc:C00861","id":"GHCND","name":"Daily S
 ummaries",[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 168--168
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":1,"mindate":"1763-01-01","maxdate":"2014-1
 2-31"},[] 
  []
 
 
-Overfull \hbox (43.49661pt too wide) in paragraph at lines 168--168
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 169--169
 []  \OT1/cmtt/m/n/10 {"uid":"gov.noaa.ncdc:C00841","id":"GHCNDMS","name":"Month
 ly Summaries",[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 168--168
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":1,"mindate":"1763-01-01","maxdate":"2014-1
 1-01"},[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 168--168
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":0.95,"mindate":"1991-06-05","maxdate":"201
 4-12-31"},[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 168--168
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":0.95,"mindate":"1994-05-20","maxdate":"201
 4-12-28"},[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 168--168
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":1,"mindate":"2010-01-01","maxdate":"2010-0
 1-01"},[] 
  []
 
 
-Overfull \hbox (38.24666pt too wide) in paragraph at lines 168--168
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 169--169
 []  \OT1/cmtt/m/n/10 {"uid":"gov.noaa.ncdc:C00823","id":"NORMAL_DLY","name":"No
 rmals Daily",[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 168--168
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":1,"mindate":"2010-01-01","maxdate":"2010-1
 2-31"},[] 
  []
 
 
-Overfull \hbox (43.49661pt too wide) in paragraph at lines 168--168
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 169--169
 []  \OT1/cmtt/m/n/10 {"uid":"gov.noaa.ncdc:C00824","id":"NORMAL_HLY","name":"No
 rmals Hourly",[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 168--168
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":1,"mindate":"2010-01-01","maxdate":"2010-1
 2-31"},[] 
  []
 
 
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 168--168
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 169--169
 []  \OT1/cmtt/m/n/10 {"uid":"gov.noaa.ncdc:C00822","id":"NORMAL_MLY","name":"No
 rmals Monthly",[] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 168--168
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":1,"mindate":"2010-01-01","maxdate":"2010-1
 2-01"},[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 168--168
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":0.25,"mindate":"1970-05-12","maxdate":"201
 3-07-01"},[] 
  []
 
 
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 168--168
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 169--169
 []   \OT1/cmtt/m/n/10 "datacoverage":1,"mindate":"1900-01-01","maxdate":"2013-1
 0-01"}],[] 
  []
 
 [3]
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 239--239
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 240--240
 []        \OT1/cmtt/m/n/10 http://www.ncdc.noaa.gov/cdo-web/api/v2/data?dataset
 id=GHCND&\[] 
  []
 
 
-Overfull \hbox (32.9967pt too wide) in paragraph at lines 239--239
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 240--240
 []        \OT1/cmtt/m/n/10 locationid=CITY:GM000019&startdate=2014-10-01&enddat
 e=2014-10-31[] 
  []
 
 [4]
-Underfull \hbox (badness 4492) in paragraph at lines 267--267
+Underfull \hbox (badness 4492) in paragraph at lines 268--268
 []\OT1/cmr/m/n/8 noaa data -l CITY:GM000019 -d
  []
 
 
-Overfull \hbox (20.43306pt too wide) in paragraph at lines 257--273
+Overfull \hbox (20.43306pt too wide) in paragraph at lines 258--274
 [][] 
  []
 
 [5]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 338.
+nput line 339.
  (./listings/cli_test.exs
 Overfull \hbox (81.00433pt too wide) in paragraph at lines 6--7
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
@@ -452,12 +456,12 @@ Overfull \hbox (111.00464pt too wide) in paragraph at lines 9--10
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[6]
 Overfull \hbox (81.00433pt too wide) in paragraph at lines 12--13
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[6]
+
 Overfull \hbox (63.00415pt too wide) in paragraph at lines 15--16
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -494,25 +498,25 @@ Overfull \hbox (39.0039pt too wide) in paragraph at lines 33--34
  []
 
 )
-Overfull \hbox (64.49643pt too wide) in paragraph at lines 349--349
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 350--350
 []\OT1/cmtt/m/n/10 ** (CompileError) test/cli_test.exs:4: module Noaa.CLI is no
 t loaded and could[] 
  []
 
 
-Overfull \hbox (20.43306pt too wide) in paragraph at lines 364--375
+Overfull \hbox (20.43306pt too wide) in paragraph at lines 365--376
 [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-(./listings/cli.ex
+(./listings/cli.ex [7]
 Overfull \hbox (117.0047pt too wide) in paragraph at lines 6--7
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[7]
+
 Overfull \hbox (93.00446pt too wide) in paragraph at lines 20--22
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -612,7 +616,7 @@ Overfull \hbox (15.00366pt too wide) in paragraph at lines 43--45
 [][][][][][][][][][][][][] 
  []
 
-) [8] (./listings/cli_test1.exs
+[8]) (./listings/cli_test1.exs
 Overfull \hbox (81.00433pt too wide) in paragraph at lines 6--7
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -652,13 +656,13 @@ Overfull \hbox (63.00415pt too wide) in paragraph at lines 29--30
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[9]
 Overfull \hbox (129.00482pt too wide) in paragraph at lines 32--33
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][] 
  []
 
-[9]
+
 Overfull \hbox (39.0039pt too wide) in paragraph at lines 35--36
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -673,12 +677,12 @@ Overfull \hbox (117.0047pt too wide) in paragraph at lines 6--7
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[10]
 Overfull \hbox (93.00446pt too wide) in paragraph at lines 20--22
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[10]
+
 Overfull \hbox (45.00397pt too wide) in paragraph at lines 22--23
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -779,7 +783,7 @@ File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 47.
-) [11]
+ [11])
 (./listings/test-result2) (./listings/cli_test2.exs
 Overfull \hbox (81.00433pt too wide) in paragraph at lines 6--7
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
@@ -831,7 +835,7 @@ Overfull \hbox (39.0039pt too wide) in paragraph at lines 35--36
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [12] (./listings/test-result3
+[12]) (./listings/test-result3
 Overfull \hbox (159.00513pt too wide) in paragraph at lines 3--4
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -883,12 +887,12 @@ Overfull \hbox (243.00598pt too wide) in paragraph at lines 41--42
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[13]
 Overfull \hbox (135.00488pt too wide) in paragraph at lines 48--49
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[13]
+
 Overfull \hbox (183.00537pt too wide) in paragraph at lines 50--51
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -923,7 +927,7 @@ Overfull \hbox (33.00385pt too wide) in paragraph at lines 30--31
 [][][][][][][][][][][][] 
  []
 
-
+[14]
 Overfull \hbox (33.00385pt too wide) in paragraph at lines 31--32
 [][][][][][][][][][] 
  []
@@ -943,7 +947,7 @@ Overfull \hbox (27.00378pt too wide) in paragraph at lines 34--35
 [][][][][][][][][][][][] 
  []
 
-[14]
+
 Overfull \hbox (27.00378pt too wide) in paragraph at lines 35--36
 [][][][][][][][][][][][] 
  []
@@ -1013,12 +1017,12 @@ Overfull \hbox (39.0039pt too wide) in paragraph at lines 72--73
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[15]
 Overfull \hbox (27.00378pt too wide) in paragraph at lines 83--84
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[15]
+
 Overfull \hbox (123.00476pt too wide) in paragraph at lines 84--85
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1053,7 +1057,7 @@ Overfull \hbox (87.0044pt too wide) in paragraph at lines 16--17
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[16]
 Overfull \hbox (87.0044pt too wide) in paragraph at lines 17--18
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1063,7 +1067,7 @@ Overfull \hbox (105.00458pt too wide) in paragraph at lines 20--21
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[16]
+
 Overfull \hbox (9.0036pt too wide) in paragraph at lines 21--22
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1224,7 +1228,7 @@ Overfull \hbox (39.0039pt too wide) in paragraph at lines 38--39
 [][][][][][][][][][][][][] 
  []
 
-
+[18]
 Overfull \hbox (15.00366pt too wide) in paragraph at lines 39--40
 [][][][][][][][][][][][][][][][][][][] 
  []
@@ -1244,7 +1248,7 @@ Overfull \hbox (33.00385pt too wide) in paragraph at lines 42--43
 [][][][][][][][][][][][] 
  []
 
-[18]
+
 Overfull \hbox (39.0039pt too wide) in paragraph at lines 43--44
 [][][][][][][][][][][][] 
  []
@@ -1309,7 +1313,7 @@ Overfull \hbox (93.00446pt too wide) in paragraph at lines 22--24
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
+[21]
 Overfull \hbox (45.00397pt too wide) in paragraph at lines 24--25
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1324,7 +1328,7 @@ Overfull \hbox (33.00385pt too wide) in paragraph at lines 29--30
 [][][][][][][][][][][][][][][][][] 
  []
 
-[21]
+
 Overfull \hbox (33.00385pt too wide) in paragraph at lines 30--31
 [][][][][][][][][][][][] 
  []
@@ -1440,24 +1444,1673 @@ Overfull \hbox (15.00366pt too wide) in paragraph at lines 95--96
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 466.
- [23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 466.
+Overfull \hbox (7.6015pt too wide) in paragraph at lines 467--471
+[]\OT1/cmr/m/n/10 When we run the test again we see it pass. We can-not test th
+e \OT1/cmtt/m/n/10 process(:help)
+ []
+
+(./listings/run-help
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 6--7
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (195.0055pt too wide) in paragraph at lines 7--472
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+ []
+
+[23] (./listings/run-data) (./listings/mix.exs
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 24--25
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[24]) (./listings/mix-deps) (./listings/mix-deps-get
+Overfull \hbox (147.005pt too wide) in paragraph at lines 9--10
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 11--12
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (111.00464pt too wide) in paragraph at lines 13--14
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 15--16
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (141.00494pt too wide) in paragraph at lines 17--18
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (87.0044pt too wide) in paragraph at lines 19--20
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 21--22
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 23--518
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+(./listings/mix-deps2 [25]
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 3--4
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 6--7
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 9--10
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 12--523
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+(./listings/mix-deps-compile [26]) (./listings/webservice.ex
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 2--4
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) (./listings/webservice.ex
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 2--4
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) (./listings/mix1.exs [27]
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 24--25
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) (./listings/webservice1.ex
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 2--4
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 10--11
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 11--12
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 15--16
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[28]
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 19--20
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) (./listings/webservice2.ex
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 2--4
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 10--11
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 11--12
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 15--16
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 19--20
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[29]) (./listings/json-format
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 5--6
+[][][][][][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (51.00403pt too wide) in paragraph at lines 7--592
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 616--616
+[]\OT1/cmtt/m/n/10 Erlang/OTP 17 [erts-6.3] [source] [64-bit] [smp:4:4] [async-
+threads:10][] 
+ []
+
+
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 616--616
+[]\OT1/cmtt/m/n/10 Interactive Elixir (1.0.2) - press Ctrl+C to exit (type h() 
+ENTER for help)[] 
+ []
+
+
+Overfull \hbox (74.99634pt too wide) in paragraph at lines 616--616
+[]\OT1/cmtt/m/n/10 iex(1)> ds = Noaa.Webservice.fetch("http://www.ncdc.noaa.gov
+/cdo-web/api/v2/data[] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 616--616
+[]  \OT1/cmtt/m/n/10 {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, 
+{"offset", 1}]}]}]}[] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 635--635
+[]  \OT1/cmtt/m/n/10 {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, 
+{"offset", 1}]}]}]}[] 
+ []
+
+[30]
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 635--635
+[] \OT1/cmtt/m/n/10 {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {
+"offset", 1}]}]}][] 
+ []
+
+
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 655--655
+[] \OT1/cmtt/m/n/10 {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {
+"offset", 1}]}]}][] 
+ []
+
+
+Overfull \hbox (74.99634pt too wide) in paragraph at lines 655--655
+[]   \OT1/cmtt/m/n/10 {"name", "Annual Summaries"}, {"datacoverage", 1}, {"mind
+ate", "1831-02-01"},[] 
+ []
+
+
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 655--655
+[]\OT1/cmtt/m/n/10 {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {"
+offset", 1}]}]}[] 
+ []
+
+
+Overfull \hbox (74.99634pt too wide) in paragraph at lines 667--667
+[]   \OT1/cmtt/m/n/10 {"name", "Annual Summaries"}, {"datacoverage", 1}, {"mind
+ate", "1831-02-01"},[] 
+ []
+
+
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 667--667
+[]\OT1/cmtt/m/n/10 {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {"
+offset", 1}]}]}[] 
+ []
+
+
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 700--700
+[] \OT1/cmtt/m/n/10 {"metadata", [{"resultset", [{"limit", 1}, {"count", 11}, {
+"offset", 1}]}]}][] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 700--700
+[]  \OT1/cmtt/m/n/10 {"name", "Annual Summaries"}, {"datacoverage", 1}, {"minda
+te", "1831-02-01"},[] 
+ []
+
+[31]
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 715--715
+[]\OT1/cmtt/m/n/10 [#HashDict<[{"name", "Annual Summaries"}, {"maxdate", "2014-
+07-01"},[] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 715--715
+[]  \OT1/cmtt/m/n/10 {"id", "ANNUAL"}, {"mindate", "1831-02-01"}, {"uid", "gov.
+noaa.ncdc:C00040"},[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 738--738
+[]\OT1/cmtt/m/n/10 [#HashDict<[{"name", "Annual Summaries"}, {"maxdate", "2014-
+07-01"},[] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 738--738
+[]  \OT1/cmtt/m/n/10 {"id", "ANNUAL"}, {"mindate", "1831-02-01"}, {"uid", "gov.
+noaa.ncdc:C00040"},[] 
+ []
+
+(./listings/decode-test.exs [32]
+Overfull \hbox (3.00354pt too wide) in paragraph at lines 8--9
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (3.00354pt too wide) in paragraph at lines 9--10
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 10--11
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 11--12
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (129.00482pt too wide) in paragraph at lines 27--28
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) (./listings/cli6.ex
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[33]
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 23--25
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 26--27
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 30--31
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 31--32
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 32--33
+[][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 33--34
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 34--35
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 35--36
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 37--38
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 38--39
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 39--40
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 40--41
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 41--42
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 42--43
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 43--44
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 44--45
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 45--46
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 46--48
+[][][][][][][][][][][][][] 
+ []
+
+[34]
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 69--70
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 70--71
+[][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 71--72
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 72--74
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 75--76
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 76--77
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 83--85
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 87--88
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (123.00476pt too wide) in paragraph at lines 88--89
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (123.00476pt too wide) in paragraph at lines 89--90
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 101--102
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 118--119
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[35]
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 122--123
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) (./listings/transform-test.exs [36]
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 17--18
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 18--19
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 19--20
+[][][][][][] 
+ []
+
+) (./listings/cli7.ex
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 23--25
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 26--27
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 30--31
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 31--32
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 32--33
+[][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 33--34
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 34--35
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 35--36
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 37--38
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 38--39
+[][][][][][][][][][][][] 
+ []
+
+[37]
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 39--40
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 40--41
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 41--42
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 42--43
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 43--44
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 44--45
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 45--46
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 46--48
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 69--70
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 70--71
+[][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 71--72
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 72--74
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 75--76
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 76--77
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 83--85
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 87--88
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[38]
+Overfull \hbox (123.00476pt too wide) in paragraph at lines 88--89
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (123.00476pt too wide) in paragraph at lines 89--90
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 97--98
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 100--101
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 102--103
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 111--112
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 115--116
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 119--120
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[39]
+Overfull \hbox (3.00354pt too wide) in paragraph at lines 145--146
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 154--155
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 156--157
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (81.00433pt too wide) in paragraph at lines 157--158
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (10.99953pt too wide) in paragraph at lines 780--783
+\OT1/cmr/m/n/10 The \OT1/cmtt/m/n/10 metadata \OT1/cmr/m/n/10 gives in-for-ma-t
+ion about the data re-trieved from \OT1/cmtt/m/n/10 NOAA\OT1/cmr/m/n/10 . The \
+OT1/cmtt/m/n/10 metadata
+ []
+
+
+Overfull \hbox (20.43306pt too wide) in paragraph at lines 786--796
+[][] 
+ []
+
+
+Overfull \hbox (20.43306pt too wide) in paragraph at lines 805--817
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (20.43306pt too wide) in paragraph at lines 825--837
+[][] 
+ []
+
+[40]
+Overfull \hbox (20.43306pt too wide) in paragraph at lines 845--857
+[][] 
+ []
+
+(./listings/table-formatter-test.exs [41]
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 8--9
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][]
+ []
+
+
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 9--10
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][]
+ []
+
+
+Overfull \hbox (111.00464pt too wide) in paragraph at lines 10--11
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][] 
+ []
+
+
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 11--12
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][]
+ []
+
+
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 12--13
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][]
+ []
+
+
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 19--20
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (111.00464pt too wide) in paragraph at lines 20--21
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (123.00476pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 31--32
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[42]) (./listings/table-formatter.ex
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 20--21
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[43]
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 42--43
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 49--50
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) (./listings/cli_process_test2.exs
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 10--11
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 11--12
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 12--13
+[][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 13--14
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 14--15
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[44]
+Overfull \hbox (3.00354pt too wide) in paragraph at lines 22--24
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 26--27
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 27--28
+[][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 28--29
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 29--30
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 42--43
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 46--47
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 52--53
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 53--54
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (105.00458pt too wide) in paragraph at lines 54--55
+[][][][][] 
+ []
+
+
+Overfull \hbox (105.00458pt too wide) in paragraph at lines 55--56
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (105.00458pt too wide) in paragraph at lines 56--57
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (105.00458pt too wide) in paragraph at lines 57--58
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (105.00458pt too wide) in paragraph at lines 58--59
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (105.00458pt too wide) in paragraph at lines 59--60
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (105.00458pt too wide) in paragraph at lines 60--61
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (105.00458pt too wide) in paragraph at lines 61--62
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (105.00458pt too wide) in paragraph at lines 62--63
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 63--64
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) [45] (./listings/cli7.ex
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 23--25
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 26--27
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 30--31
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 31--32
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 32--33
+[][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 33--34
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 34--35
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 35--36
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 37--38
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 38--39
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 39--40
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 40--41
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 41--42
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 42--43
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 43--44
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 44--45
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 45--46
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 46--48
+[][][][][][][][][][][][][] 
+ []
+
+[46]
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 69--70
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 70--71
+[][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 71--72
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 72--74
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 75--76
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 76--77
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 83--85
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 87--88
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (123.00476pt too wide) in paragraph at lines 88--89
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (123.00476pt too wide) in paragraph at lines 89--90
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[47]
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 97--98
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 100--101
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 102--103
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 111--112
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 115--116
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 119--120
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (3.00354pt too wide) in paragraph at lines 145--146
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[48]
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 154--155
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 156--157
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (81.00433pt too wide) in paragraph at lines 157--158
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 name                      | id         | mindate    | maxdat
+e    | datacoverage[] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 --------------------------+------------+------------+-------
+-----+-------------[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Annual Summaries          | ANNUAL     | 1831-02-01 | 2014-0
+7-01 | 1[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Daily Summaries           | GHCND      | 1763-01-01 | 2014-1
+2-31 | 1[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Monthly Summaries         | GHCNDMS    | 1763-01-01 | 2014-1
+2-01 | 1[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Weather Radar (Level II)  | NEXRAD2    | 1991-06-05 | 2015-0
+1-04 | 0.95[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Weather Radar (Level III) | NEXRAD3    | 1994-05-20 | 2015-0
+1-01 | 0.95[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Normals Annual/Seasonal   | NORMAL_ANN | 2010-01-01 | 2010-0
+1-01 | 1[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Normals Daily             | NORMAL_DLY | 2010-01-01 | 2010-1
+2-31 | 1[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Normals Hourly            | NORMAL_HLY | 2010-01-01 | 2010-1
+2-31 | 1[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Normals Monthly           | NORMAL_MLY | 2010-01-01 | 2010-1
+2-01 | 1[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Precipitation 15 Minute   | PRECIP_15  | 1970-05-12 | 2013-0
+7-01 | 0.25[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Precipitation Hourly      | PRECIP_HLY | 1900-01-01 | 2013-1
+0-01 | 1[] 
+ []
+
+
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 name            | id            | mindate    | maxdate    | 
+datacoverage[] 
+ []
+
+
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 ----------------+---------------+------------+------------+-
+------------[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Ajman, AE       | CITY:AE000002 | 1944-03-01 | 2014-12-30 | 
+0.6859[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Dubai, AE       | CITY:AE000003 | 1944-03-01 | 2014-12-30 | 
+0.6859[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Sharjah, AE     | CITY:AE000006 | 1944-03-01 | 2014-12-30 | 
+0.6859[] 
+ []
+
+[49]
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Annaba, AG      | CITY:AG000002 | 1909-11-01 | 1937-12-31 | 
+0.9527[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Bejaia, AG      | CITY:AG000005 | 1909-11-01 | 1938-12-29 | 
+0.9596[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Constantine, AG | CITY:AG000006 | 1880-05-01 | 1938-12-30 | 
+0.8736[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Laghouat, AG    | CITY:AG000008 | 1888-01-01 | 1938-12-30 | 
+0.9036[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 Tamanrasset, AG | CITY:AG000016 | 1940-01-01 | 2014-02-18 | 
+0.9989[] 
+ []
+
+
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 953--953
+[]        \OT1/cmtt/m/n/10 location: "CITY:AE000002", from: "2014-10-01", to: "
+2014-10-01"]})[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 ---------+-------+-------------------+------------+---------
+-----------[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 PRCP     | 0     | GHCND:AE000041196 | ,,S,       | 2014-10-
+01T00:00:00[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 TMAX     | 381   | GHCND:AE000041196 | ,,S,       | 2014-10-
+01T00:00:00[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 953--953
+[]\OT1/cmtt/m/n/10 TMIN     | 285   | GHCND:AE000041196 | ,,S,       | 2014-10-
+01T00:00:00[] 
+ []
+
+(./listings/mix2.exs [50]
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (1.41634pt too wide) in paragraph at lines 963--969
+[]\OT1/cmtt/m/n/10 escript \OT1/cmr/m/n/10 is \OT1/cmtt/m/n/10 Erlang \OT1/cmr/
+m/n/10 util-ity that can run \OT1/cmtt/m/n/10 Zip \OT1/cmr/m/n/10 archives that
+ con-tain pre-compiled
+ []
+
+(./listings/cli8.ex
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 7--8
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[51]
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 23--25
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 26--27
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 30--31
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 31--32
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 32--33
+[][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 33--34
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 34--35
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 35--36
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 37--38
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 38--39
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 39--40
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 40--41
+[][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (21.00372pt too wide) in paragraph at lines 41--42
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 42--43
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 43--44
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 44--45
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 45--46
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 46--48
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 69--70
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[52]
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 70--71
+[][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 71--72
+[][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 72--74
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (63.00415pt too wide) in paragraph at lines 75--76
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 76--77
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 83--85
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.00378pt too wide) in paragraph at lines 87--88
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (123.00476pt too wide) in paragraph at lines 88--89
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (123.00476pt too wide) in paragraph at lines 89--90
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 97--98
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 100--101
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 102--103
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (57.00409pt too wide) in paragraph at lines 111--112
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 115--116
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (75.00427pt too wide) in paragraph at lines 119--120
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[53]
+Overfull \hbox (3.00354pt too wide) in paragraph at lines 145--146
+[][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (39.0039pt too wide) in paragraph at lines 154--155
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (69.00421pt too wide) in paragraph at lines 156--157
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (81.00433pt too wide) in paragraph at lines 157--158
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Overfull \hbox (6.72174pt too wide) in paragraph at lines 972--974
+[]\OT1/cmr/m/n/10 To make our ap-pli-ca-tion ex-e-cutable we pack-age it with \
+OT1/cmtt/m/n/10 $ mix escript.build\OT1/cmr/m/n/10 . 
+ []
+
+[54]
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 name                      | id         | mindate    | maxdat
+e    | datacoverage[] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 --------------------------+------------+------------+-------
+-----+-------------[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 Annual Summaries          | ANNUAL     | 1831-02-01 | 2014-0
+7-01 | 1[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 Daily Summaries           | GHCND      | 1763-01-01 | 2014-1
+2-31 | 1[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 Monthly Summaries         | GHCNDMS    | 1763-01-01 | 2014-1
+2-01 | 1[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 Weather Radar (Level II)  | NEXRAD2    | 1991-06-05 | 2015-0
+1-04 | 0.95[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 Weather Radar (Level III) | NEXRAD3    | 1994-05-20 | 2015-0
+1-01 | 0.95[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 Normals Annual/Seasonal   | NORMAL_ANN | 2010-01-01 | 2010-0
+1-01 | 1[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 Normals Daily             | NORMAL_DLY | 2010-01-01 | 2010-1
+2-31 | 1[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 Normals Hourly            | NORMAL_HLY | 2010-01-01 | 2010-1
+2-31 | 1[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 Normals Monthly           | NORMAL_MLY | 2010-01-01 | 2010-1
+2-01 | 1[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 1017--1017
+[]\OT1/cmtt/m/n/10 Precipitation 15 Minute   | PRECIP_15  | 1970-05-12 | 2013-0
+7-01 | 0.25[] 
+ []
+
+(./listings/table-formatter2.ex
+Overfull \hbox (123.00476pt too wide) in paragraph at lines 4--5
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[55]
+Overfull \hbox (99.00452pt too wide) in paragraph at lines 16--17
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (15.00366pt too wide) in paragraph at lines 23--24
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (87.0044pt too wide) in paragraph at lines 33--34
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 40--41
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.00385pt too wide) in paragraph at lines 45--46
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[56]
+Overfull \hbox (93.00446pt too wide) in paragraph at lines 63--64
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 79--80
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (45.00397pt too wide) in paragraph at lines 90--91
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.0036pt too wide) in paragraph at lines 92--93
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) (./listings/doc-test.exs [57]) (./listings/mix3.exs
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[58])
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 1076--1076
+[]\OT1/cmtt/m/n/10 ** (RuntimeError) Could not find a markdown processor to be 
+used by ex_doc.[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 1076--1076
+[]\OT1/cmtt/m/n/10 * Add {:markdown, github: "devinus/markdown"} to your mix.ex
+s deps[] 
+ []
+
+
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 1076--1076
+[]\OT1/cmtt/m/n/10 * Ensure pandoc (http://johnmacfarlane.net/pandoc) is availa
+ble in your syst$[] 
+ []
+
+(./listings/mix4.exs [59]
+Overfull \hbox (117.0047pt too wide) in paragraph at lines 25--26
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1122.
+ [60] [61]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1122.
  (./elixir.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 466.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 466.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1122.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1122.
+
 Package rerunfilecheck Info: File `elixir.out' has not changed.
-(rerunfilecheck)             Checksum: 40FA5F9A3E568A3DDD5D663BE6E0068D;434.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 466.
+(rerunfilecheck)             Checksum: 0015820D67E8D610180D605DEB81F3C8;1318.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1122.
  ) 
 Here is how much of TeX's memory you used:
- 7624 strings out of 495028
- 111040 string characters out of 6181496
- 218686 words of memory out of 5000000
- 9959 multiletter control sequences out of 15000+600000
+ 9144 strings out of 495028
+ 133662 string characters out of 6181496
+ 232119 words of memory out of 5000000
+ 10004 multiletter control sequences out of 15000+600000
  9008 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 30i,10n,35p,249b,1628s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,10n,35p,249b,1632s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texliv
@@ -1470,10 +3123,10 @@ fonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on elixir.pdf (23 pages, 222031 bytes).
+Output written on elixir.pdf (61 pages, 361039 bytes).
 PDF statistics:
- 1112 PDF objects out of 1200 (max. 8388607)
- 1063 compressed objects within 11 object streams
- 781 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2980 PDF objects out of 2984 (max. 8388607)
+ 2875 compressed objects within 29 object streams
+ 2177 named destinations out of 2487 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
