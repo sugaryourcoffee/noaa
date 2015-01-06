@@ -3,6 +3,10 @@ defmodule Noaa.TableFormatter do
   @moduledoc """
   Is formatting the results of the fetched data and the metadata into a table.
   """
+
+  @doc """
+  Prints the rows and the header to STDOUT
+  """
   def print(rows, header) do
     columns   = extract_columns(rows, header)
     widths    = max_column_widths(columns, header)

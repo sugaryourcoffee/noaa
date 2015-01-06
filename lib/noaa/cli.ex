@@ -97,8 +97,8 @@ defmodule Noaa.CLI do
   Prints the help message if the command line parameters do not match a command.
   Exits the application after printing the help message.
 
-  # Example
-    Noaa.CLI.process(:help)
+  ## Example
+      iex> Noaa.CLI.process(:help)
   """
   def process(:help) do
     IO.puts """
@@ -119,7 +119,7 @@ defmodule Noaa.CLI do
   the count parameter.
 
   ## Example
-    Noaa.CLI.process({:datasets, 1})
+      iex> Noaa.CLI.process({:datasets, 1})
   """
   def process({:datasets, count}) do
     print(datasets_url(count), "Datasets", 
@@ -131,7 +131,7 @@ defmodule Noaa.CLI do
   by the count parameter.
 
   ## Example
-    Noaa.CLI.process({:locations, 10})
+      iex> Noaa.CLI.process({:locations, 10})
   """
   def process({:locations, count}) when is_integer(count) do
     print(locations_url(count), "Locations", 
@@ -144,7 +144,7 @@ defmodule Noaa.CLI do
   Note: Not yet implemented.
 
   ## Example
-    Noaa.CLI.process({:locations, "Munich"})
+      iex> Noaa.CLI.process({:locations, "Munich"})
   """
   def process({:locations, city}) do
     locations_url(@max_count)
@@ -155,9 +155,9 @@ defmodule Noaa.CLI do
   specified location. A location can be obtained by the locations command.
 
   ## Example
-    params  = params1 ++ params2
-    Noaa.CLI.process({:data, [datasets: "GHCND", location: "CITY:AE000002",\ 
-                              from: "2014-10-01", to: "2014-10-01"] 
+      iex> Noaa.CLI.process({:data, [datasets: "GHCND", 
+      ...>                           location: "CITY:AE000002", 
+      ...>                           from: "2014-10-01", to: "2014-10-01"] 
   """
   def process({:data, values}) do
     print(data_url(values), "Weather Data", 
