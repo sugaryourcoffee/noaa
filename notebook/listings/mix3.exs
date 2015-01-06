@@ -4,6 +4,8 @@ defmodule Noaa.Mixfile do
   def project do
     [app: :noaa,
      version: "0.0.1",
+     name: "Noaa",
+     source_url: "https://github.com/sugaryourcoffee/noaa",
      elixir: "~> 1.0",
      escript: escript_config,
      deps: deps]

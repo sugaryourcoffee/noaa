@@ -1,5 +1,5 @@
 defmodule Noaa.Webservice do
-  @token [ { "token", "pLCcTVobSdphuEvXyOyhkAbVlObmWQra" } ] 
+  @token [ { "token", "xLCcTVopsdphuEvPyOyhkAbVlObmWQra" } ] 
 
   def fetch(url) do
     url
@@ -9,7 +9,7 @@ defmodule Noaa.Webservice do
 
   def handle_response({:ok, %HTTPoison.Response{status_code: 200, 
                                                 body: body}}) do
-    { :ok, body } #:jsx.decode(body) }
+    { :ok, body }
   end
 
   def handle_response({:ok, %HTTPoison.Response{status_code: 404}}) do
@@ -17,7 +17,7 @@ defmodule Noaa.Webservice do
   end
 
   def handle_response({:error, %HTTPoison.Error{reason: reason}}) do
-    { :error, reason } #:jsx.decode(reason) }
+    { :error, reason }
   end
 
 

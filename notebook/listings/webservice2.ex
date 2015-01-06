@@ -1,5 +1,5 @@
 defmodule Noaa.Webservice do
-  @token [ { "token", "pLCcTVobSdphuEvXyOyhkAbVlObmWQra" } ] 
+  @token [ { "token", "xLCcTVopsdphuEvPyOyhkAbVlObmWQra" } ] 
 
   def fetch(url) do
     url
