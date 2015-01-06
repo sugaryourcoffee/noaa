@@ -1022,7 +1022,7 @@ quite cumbersome. But nevertheless \texttt{Elixir} comes with a fantastic
 documentation feature that allows you not only to insert code like you 
 would test your application in \texttt{iex} but it also tests whether this
 code actually runs. Let's document the \texttt{lib/noaa/table\_formatter.ex}
-module as this is the only where we can create \texttt{iex} commands without
+module as this is the only one where we can create \texttt{iex} commands without
 reaching for the \texttt{NOAA} webservice over the internet.
 
 \includecode{lib/noaa/table\_formatter.ex}{lst:tableformatter2}
@@ -1052,7 +1052,9 @@ Randomized with seed 362781
 \section{Project Documentation}
 \texttt{Elixir} also comes equipped with a documentation generator called
 \texttt{ExDoc}. To utilize this we have to add it to our dependencies in our
-\texttt{mix.exs} file.
+\texttt{mix.exs} file. \texttt{ExDoc} also provides a nice feature to link
+to the \texttt{Github} hosted source code. To use that we add the
+\texttt{Github-URL} into the \texttt{application} section in \texttt{mix.exs}.
 
 \includecode{mix.exs}{lst:mix3}{listings/mix3.exs}
 
